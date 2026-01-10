@@ -317,6 +317,7 @@
             line-height: 1.9;
             margin-bottom: 20px;
             max-width: 800px;
+            text-align: justify;
         }
 
         /* ============================================
@@ -338,9 +339,9 @@
             flex-direction: column;
             gap: 30px;
             margin-top: 50px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
+            width: 100%;
+            /* margin-left: auto;
+            margin-right: auto; */
             position: relative;
         }
 
@@ -1178,44 +1179,74 @@
              ============================================ -->
         <section class="projects">
             <div class="projects-container">
-                <h2 class="section-title">Featured Projects</h2>
+                <h2 class="section-title">Personal Projects</h2>
 
                 <!-- Project 1 -->
                 <div class="project-item">
                     <div>
-                        <p class="project-label">Featured Project</p>
-                        <h3 class="project-title">Spotify Visualizer</h3>
+                        <p class="project-label">Personal Project</p>
+                        <h3 class="project-title">Social "Netword"</h3>
                         <p class="project-description">
-                            A web app for visualizing personalized Spotify data. View your top artists, top tracks,
-                            recently played tracks, and detailed audio analysis. Get recommendations based on your
-                            existing playlists and discover new music tailored to your taste.
+                            This is a comprehensive full-stack authentication system built with modern web technologies. It demonstrates
+                            a production-ready authentication flow with secure token management, password hashing & session handling
+                            using HTTP-only cookies.
                         </p>
                         <div class="project-tech">
-                            <span class="tech-badge">React</span>
-                            <span class="tech-badge">Web API</span>
-                            <span class="tech-badge">D3.js</span>
+                            <span class="tech-badge">NodeJS</span>
+                            <span class="tech-badge">ExpressJS</span>
+                            <span class="tech-badge">NextJS</span>
+                            <span class="tech-badge">MySQL</span>
+                            <span class="tech-badge">Redis</span>
                         </div>
                     </div>
-                    <div class="project-image">🎵</div>
+                    <div class="project-image">🌐</div>
                 </div>
 
                 <!-- Project 2 -->
                 <div class="project-item">
                     <div>
-                        <p class="project-label">Featured Project</p>
-                        <h3 class="project-title">Task Management App</h3>
+                        <p class="project-label">Personal Project</p>
+                        <h3 class="project-title">RAG-based Application for Web Frontend Development</h3>
                         <p class="project-description">
-                            A collaborative task management platform designed for teams to organize, prioritize, and
-                            track project tasks. Features include real-time collaboration, progress tracking, automated
-                            workflows, and comprehensive analytics dashboard.
+                            Codfe is a state-of-the-art chatbot application developed using the MERN stack (MongoDB, Express, ReactJS,
+                            NodeJS) & powered by cutting-edge Large Language Models (LLMs) such as OpenAI's GPT models & Google's
+                            Gemini. The system combines Docker to host Elasticsearch & Kibana, providing a comprehensive AI-powered
+                            virtual assistant for developers. This chatbot is designed to provide contextual & accurate responses by leveraging
+                            RAG techniques & dedicated documentation for Front-end Developers. The system supports multiple LLMs &
+                            provides an unparalleled conversational experience with advanced document processing capabilities.
                         </p>
                         <div class="project-tech">
-                            <span class="tech-badge">TypeScript</span>
-                            <span class="tech-badge">PostgreSQL</span>
-                            <span class="tech-badge">Next.js</span>
+                            <span class="tech-badge">NodeJS</span>
+                            <span class="tech-badge">ExpressJS</span>
+                            <span class="tech-badge">ReactJS</span>
+                            <span class="tech-badge">MongoDB</span>
+                            <span class="tech-badge">Redis</span>
+                            <span class="tech-badge">LangChain</span>
+                            <span class="tech-badge">Elasticsearch</span>
+                            <span class="tech-badge">Kibana</span>
                         </div>
                     </div>
-                    <div class="project-image">📊</div>
+                    <div class="project-image">🤖</div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-item">
+                    <div>
+                        <p class="project-label">Personal Project</p>
+                        <h3 class="project-title">Movie Ticket Booking Platform</h3>
+                        <p class="project-description">
+                            This project is a full-stack web application for booking movie tickets. It is built using the MERN stack (MongoDB,
+                            Express.js, ReactJS, Node.js) & offers a seamless & user-friendly experience for users to browse movies, select
+                            showtimes & book tickets online.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">NodeJS</span>
+                            <span class="tech-badge">ExpressJS</span>
+                            <span class="tech-badge">ReactJS</span>
+                            <span class="tech-badge">MongoDB</span>
+                        </div>
+                    </div>
+                    <div class="project-image">🎬</div>
                 </div>
             </div>
         </section>
@@ -1226,10 +1257,6 @@
         <section class="contact">
             <div class="contact-content">
                 <h2 class="section-title">Contact</h2>
-                <p class="contact-text">
-                    I'm currently looking to join a <span class="highlight">cross-functional team</span> that values
-                    improving people's lives through accessible design.
-                </p>
                 <p class="contact-email">dtthuan.contact@gmail.com</p>
                 <div class="social-links">
                     <a href="https://github.com/ThuanTheBadLuckCoder" class="social-icon" target="_blank"
