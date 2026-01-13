@@ -5,1024 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Portfolio of a Software Engineer & UI/UX Designer specializing in accessible design and meaningful digital products.">
-    <meta name="keywords" content="Software Engineer, UI Designer, UX Designer, Web Design, Mobile App">
-    <meta name="author" content="Your Name">
-    <title>Software Engineer & Designer Portfolio</title>
-
-    <style>
-        /* ============================================
-           ROOT VARIABLES & GLOBAL STYLES
-           ============================================ */
-        :root {
-            --bg-primary: #0f051a;
-            --bg-secondary: #1a0b2e;
-            --bg-tertiary: #2d1b4e;
-            --accent-purple: #8b5cf6;
-            --accent-light: #a78bfa;
-            --accent-bright: #c4b5fd;
-            --text-primary: #ffffff;
-            --text-secondary: #d1d5db;
-            --text-muted: #9ca3af;
-            --glow-purple: rgba(139, 92, 246, 0.5);
-            --glow-bright: rgba(196, 181, 253, 0.3);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%);
-            background-attachment: fixed;
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Animated background elements */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* ============================================
-           HEADER & NAVIGATION
-           ============================================ */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 80px;
-            background: rgba(15, 5, 26, 0.7);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(139, 92, 246, 0.2);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 40px;
-        }
-
-        .nav-brand {
-            font-size: 28px;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--accent-light), var(--accent-bright));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -2px;
-        }
-
-        nav {
-            display: flex;
-            gap: 40px;
-        }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent-purple), var(--accent-light));
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--accent-light);
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* ============================================
-           MAIN CONTENT WRAPPER
-           ============================================ */
-        main {
-            position: relative;
-            z-index: 1;
-            padding-top: 80px;
-        }
-
-        /* ============================================
-           HERO SECTION
-           ============================================ */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 80px 40px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, var(--accent-purple) 0%, transparent 70%);
-            border-radius: 50%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0.15;
-            filter: blur(60px);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            max-width: 1200px;
-            width: 100%;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-avatar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .avatar-glow {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, var(--accent-purple) 0%, transparent 70%);
-            border-radius: 50%;
-            filter: blur(50px);
-            animation: glow-pulse 3s ease-in-out infinite;
-        }
-
-        .avatar-image {
-            width: 400px;
-            height: 400px;
-            border-radius: 100%;
-            display: block;
-            position: relative;
-            z-index: 1;
-            box-shadow: 0 0 50px rgba(139, 92, 246, 0.8),
-                0 0 100px rgba(139, 92, 246, 0.4),
-                inset 0 0 20px rgba(139, 92, 246, 0.2);
-            animation: float 4s ease-in-out infinite;
-            object-fit: cover;
-            object-position: center;
-            border: 3px solid rgba(196, 181, 253, 0.6);
-            transition: all 0.3s ease;
-        }
-
-        .avatar-image:hover {
-            border-color: rgba(196, 181, 253, 1);
-            box-shadow: 0 0 60px rgba(139, 92, 246, 1),
-                0 0 120px rgba(139, 92, 246, 0.6),
-                inset 0 0 30px rgba(139, 92, 246, 0.3);
-        }
-
-        .hero-text h1 {
-            font-size: 16px;
-            font-weight: 400;
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-        }
-
-        .hero-text h1 .highlight {
-            color: var(--accent-light);
-            font-weight: 600;
-        }
-
-        .hero-text h2 {
-            font-size: 56px;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-text h2 .accent {
-            color: var(--accent-light);
-            -webkit-text-fill-color: var(--accent-light);
-        }
-
-        .hero-text p {
-            font-size: 16px;
-            color: var(--text-secondary);
-            margin-bottom: 30px;
-            max-width: 500px;
-            line-height: 1.8;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 14px 32px;
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-light));
-            color: var(--text-primary);
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
-            border: none;
-            cursor: pointer;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 40px rgba(139, 92, 246, 0.8),
-                0 10px 30px rgba(139, 92, 246, 0.3);
-        }
-
-        /* ============================================
-           ABOUT SECTION
-           ============================================ */
-        .about {
-            padding: 120px 40px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .about-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 44px;
-            font-weight: 800;
-            margin-bottom: 30px;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .about-subtitle {
-            font-size: 18px;
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-        }
-
-        .about-subtitle .company {
-            color: var(--accent-light);
-            font-weight: 600;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .about-subtitle .company:hover {
-            color: var(--accent-bright);
-        }
-
-        .about-text {
-            font-size: 16px;
-            color: var(--text-secondary);
-            line-height: 1.9;
-            margin-bottom: 20px;
-            max-width: 800px;
-            text-align: justify;
-        }
-
-        /* ============================================
-           WORK EXPERIENCE SECTION
-           ============================================ */
-        .work-experience {
-            padding: 120px 40px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .experience-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .experience-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            margin-top: 50px;
-            width: 100%;
-            /* margin-left: auto;
-            margin-right: auto; */
-            position: relative;
-        }
-
-        .experience-grid::before {
-            content: '';
-            position: absolute;
-            left: 40px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, var(--accent-purple) 0%, transparent 100%);
-        }
-
-        .experience-card {
-            background: rgba(45, 27, 78, 0.5);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            border-radius: 16px;
-            padding: 30px;
-            padding-left: 80px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .experience-card::before {
-            content: '';
-            position: absolute;
-            left: 20px;
-            top: 40px;
-            width: 40px;
-            height: 40px;
-            background: var(--bg-primary);
-            border: 2px solid var(--accent-purple);
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            z-index: 2;
-        }
-
-        .experience-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, var(--accent-purple) 0%, transparent 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
-        }
-
-        .experience-card:hover {
-            transform: translateX(10px);
-            border-color: rgba(139, 92, 246, 0.6);
-            box-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
-        }
-
-        .experience-card:hover::before {
-            opacity: 1;
-            box-shadow: 0 0 15px rgba(139, 92, 246, 0.8);
-            transform: scale(1.2);
-        }
-
-        .experience-card:hover::after {
-            opacity: 0.1;
-        }
-
-        .card-icon {
-            font-size: 20px;
-            position: absolute;
-            left: 28px;
-            top: 44px;
-            z-index: 3;
-        }
-
-        .card-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--accent-light);
-        }
-
-        .card-date {
-            font-size: 13px;
-            color: var(--accent-purple);
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .card-description {
-            font-size: 14px;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 16px;
-        }
-
-        .card-company {
-            font-size: 13px;
-            color: var(--accent-light);
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .card-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-bottom: 16px;
-            font-size: 12px;
-        }
-
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            color: var(--text-muted);
-        }
-
-        .meta-label {
-            font-weight: 600;
-            color: var(--accent-light);
-        }
-
-        .card-highlights {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .highlight-item {
-            display: flex;
-            gap: 12px;
-            color: var(--text-secondary);
-            font-size: 13px;
-            line-height: 1.6;
-        }
-
-        .highlight-item::before {
-            content: '▸';
-            color: var(--accent-purple);
-            flex-shrink: 0;
-            font-weight: bold;
-        }
-
-        /* ============================================
-           SKILLS/TOOLS SECTION
-           ============================================ */
-        .skills {
-            padding: 120px 40px;
-            position: relative;
-            z-index: 2;
-            text-align: center;
-        }
-
-        .skills-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .skills-text {
-            font-size: 18px;
-            color: var(--text-secondary);
-            margin-bottom: 50px;
-            line-height: 1.8;
-        }
-
-        .skills-text .highlight {
-            color: var(--accent-light);
-            font-weight: 600;
-        }
-
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-            gap: 20px;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .tool-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(45, 27, 78, 0.6);
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            margin: 0 auto;
-        }
-
-        .tool-icon:hover {
-            transform: scale(1.15) translateY(-5px);
-            border-color: var(--accent-purple);
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
-            background: rgba(139, 92, 246, 0.2);
-        }
-
-        /* ============================================
-           3D LOGO SECTION
-           ============================================ */
-        .logo-section {
-            padding: 120px 40px;
-            position: relative;
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 600px;
-            overflow: hidden;
-        }
-
-        .logo-container {
-            position: relative;
-            width: 400px;
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-glow {
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, var(--accent-purple) 0%, transparent 60%);
-            border-radius: 50%;
-            filter: blur(80px);
-            animation: intense-glow 3s ease-in-out infinite;
-        }
-
-        .logo-3d {
-            font-size: 180px;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent-purple) 50%, var(--accent-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            position: relative;
-            z-index: 1;
-            filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.8));
-            animation: logo-float 4s ease-in-out infinite;
-        }
-
-        .platform {
-            position: absolute;
-            bottom: 20px;
-            width: 300px;
-            height: 20px;
-            background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.5) 0%, transparent 70%);
-            border-radius: 50%;
-            filter: blur(15px);
-        }
-
-        .floating-shape {
-            position: absolute;
-            opacity: 0.3;
-            animation: rotate 8s linear infinite;
-        }
-
-        .shape-1 {
-            width: 100px;
-            height: 100px;
-            background: rgba(168, 85, 247, 0.5);
-            top: 50px;
-            right: 100px;
-            border-radius: 20px;
-        }
-
-        .shape-2 {
-            width: 80px;
-            height: 80px;
-            background: rgba(139, 92, 246, 0.5);
-            bottom: 80px;
-            left: 100px;
-            border-radius: 50%;
-        }
-
-        /* ============================================
-           PROJECTS SECTION
-           ============================================ */
-        .projects {
-            padding: 120px 40px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .projects-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .project-item {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            margin-bottom: 120px;
-        }
-
-        .project-item:nth-child(even) {
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .project-item:nth-child(even) .project-image {
-            order: -1;
-        }
-
-        .project-label {
-            font-size: 12px;
-            color: var(--accent-light);
-            font-weight: 700;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-        }
-
-        .project-title {
-            font-size: 36px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            color: var(--text-primary);
-        }
-
-        .project-description {
-            font-size: 16px;
-            color: var(--text-secondary);
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
-
-        .project-tech {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .tech-badge {
-            padding: 8px 16px;
-            background: rgba(139, 92, 246, 0.2);
-            border: 1px solid rgba(139, 92, 246, 0.5);
-            border-radius: 20px;
-            font-size: 12px;
-            color: var(--accent-light);
-            font-weight: 600;
-        }
-
-        .project-image {
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            aspect-ratio: 4/3;
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(168, 85, 247, 0.2));
-            border: 2px solid rgba(139, 92, 246, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            font-size: 80px;
-            color: rgba(139, 92, 246, 0.3);
-        }
-
-        .project-image:hover {
-            border-color: rgba(139, 92, 246, 0.8);
-            box-shadow: 0 0 30px rgba(139, 92, 246, 0.4),
-                inset 0 0 30px rgba(139, 92, 246, 0.1);
-            transform: translateY(-5px);
-        }
-
-        /* ============================================
-           CONTACT SECTION
-           ============================================ */
-        .contact {
-            padding: 120px 40px 80px;
-            position: relative;
-            z-index: 2;
-            text-align: center;
-        }
-
-        .contact-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .contact-text {
-            font-size: 18px;
-            color: var(--text-secondary);
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
-
-        .contact-text .highlight {
-            color: var(--accent-light);
-            font-weight: 600;
-        }
-
-        .contact-email {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--accent-light);
-            margin-bottom: 40px;
-            letter-spacing: 0.5px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .social-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(45, 27, 78, 0.6);
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            color: var(--accent-light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .social-icon:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-purple);
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
-            background: rgba(139, 92, 246, 0.2);
-        }
-
-        .footer-text {
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid rgba(139, 92, 246, 0.2);
-            font-size: 14px;
-            color: var(--text-muted);
-        }
-
-        /* ============================================
-           ANIMATIONS
-           ============================================ */
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        @keyframes glow-pulse {
-
-            0%,
-            100% {
-                opacity: 0.3;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 0.6;
-                transform: scale(1.1);
-            }
-        }
-
-        @keyframes intense-glow {
-
-            0%,
-            100% {
-                opacity: 0.5;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 0.8;
-                transform: scale(1.2);
-            }
-        }
-
-        @keyframes logo-float {
-
-            0%,
-            100% {
-                transform: translateY(0) rotateZ(-2deg);
-            }
-
-            50% {
-                transform: translateY(-15px) rotateZ(2deg);
-            }
-        }
-
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* ============================================
-           RESPONSIVE DESIGN
-           ============================================ */
-        @media (max-width: 768px) {
-            header {
-                padding: 0 20px;
-                height: 70px;
-            }
-
-            nav {
-                gap: 20px;
-            }
-
-            nav a {
-                font-size: 12px;
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .hero {
-                min-height: auto;
-                padding: 60px 20px;
-                margin-top: 40px;
-            }
-
-            .hero-text h2 {
-                font-size: 36px;
-            }
-
-            .hero-text h1 {
-                font-size: 14px;
-            }
-
-            .about,
-            .work-experience,
-            .skills,
-            .logo-section,
-            .projects,
-            .contact {
-                padding: 60px 20px;
-            }
-
-            .section-title {
-                font-size: 32px;
-            }
-
-            .experience-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .experience-card {
-                padding-left: 80px;
-            }
-
-            .project-item {
-                grid-template-columns: 1fr;
-                gap: 30px;
-                margin-bottom: 60px;
-            }
-
-            .project-item:nth-child(even) .project-image {
-                order: 0;
-            }
-
-            .logo-container {
-                width: 250px;
-                height: 250px;
-            }
-
-            .logo-glow {
-                width: 250px;
-                height: 250px;
-            }
-
-            .logo-3d {
-                font-size: 100px;
-            }
-
-            .tools-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-
-            .avatar-image {
-                width: 150px;
-                height: 150px;
-                font-size: 60px;
-            }
-
-            .avatar-glow {
-                width: 200px;
-                height: 200px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .nav-brand {
-                font-size: 20px;
-            }
-
-            nav {
-                gap: 12px;
-            }
-
-            nav a {
-                font-size: 10px;
-            }
-
-            header {
-                padding: 0 15px;
-            }
-
-            .hero {
-                padding: 40px 15px;
-                margin-top: 20px;
-            }
-
-            .hero-text h2 {
-                font-size: 24px;
-            }
-
-            .hero-text h1 {
-                font-size: 12px;
-            }
-
-            .section-title {
-                font-size: 24px;
-            }
-
-            .about,
-            .work-experience,
-            .skills,
-            .logo-section,
-            .projects,
-            .contact {
-                padding: 40px 15px;
-            }
-
-            .tools-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 12px;
-            }
-
-            .tool-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 24px;
-            }
-
-            .cta-button {
-                padding: 12px 24px;
-                font-size: 12px;
-            }
-
-            .project-title {
-                font-size: 24px;
-            }
-
-            .avatar-image {
-                width: 120px;
-                height: 120px;
-                font-size: 48px;
-            }
-        }
-    </style>
+        content="Portfolio of a Software Engineer">
+    <meta name="keywords" content="Software Engineer">
+    <meta name="author" content="Doan Tran Thuan">
+    <title>THUAN, Doan Tran</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -1030,12 +17,16 @@
          HEADER & NAVIGATION
          ============================================ -->
     <header>
-        <div class="nav-brand">T</div>
+        <div class="nav-brand">thuandtr</div>
         <nav>
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#work-experience">Work Experience</a>
+            <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+            <a href="#awards">Awards</a>
+            <a href="#organizations">Organizations</a>
         </nav>
     </header>
 
@@ -1050,10 +41,10 @@
                     <img src="https://media.licdn.com/dms/image/v2/D5603AQHS_fWEPyDJDA/profile-displayphoto-crop_800_800/B56ZulfxvqLMAI-/0/1768008132254?e=1769644800&v=beta&t=IYvF_7mYFu90iO7bdmtaRlbYpLXGyO8HJUbyfovi0Ng" alt="Profile" class="avatar-image">
                 </div>
                 <div class="hero-text">
-                    <h1>Hello! I Am <span class="highlight">THUAN, Doan Tran</span></h1>
-                    <h2>Engineer in <span class="accent">Information Technology</span>...</h2>
-                    <p>I have 3 years of experience working in an IT environment since 2023 as a software developer, then moved into IT Operations and am currently an Application Operations Specialist.</p>
-                    <button class="cta-button">Get In Touch</button>
+                    <h1><span class="highlight">Ho Chi Minh City, </span>Vietnam</h1>
+                    <h2>Thuan, <span class="accent">Doan</span>  Tran</h2>
+                    <p style="text-align: justify; max-width: 100%;">3+ years of expertise in Full-stack Development and IT Operations. Specialized in building scalable applications, optimizing system performance, and leading technical transformations across financial and technology sectors.</p>
+                    <a href="https://www.linkedin.com/in/thuandtr/" target="_blank" rel="noopener noreferrer" class="cta-button">Connect With Me</a>
                 </div>
             </div>
         </section>
@@ -1063,24 +54,94 @@
              ============================================ -->
         <section class="about" id="about">
             <div class="about-content">
-                <h2 class="section-title">I'm a Information Technology Engineer.</h2>
-                <p class="about-subtitle">Currently I'm a Application Operation Specialist at <span
+                <h2 class="section-title">I'm an Information Technology Engineer.</h2>
+                <p class="about-subtitle">Currently I'm an Application Operations Specialist at <span
                         class="company">Saigon Commercial Joint Stock Bank (Sacombank)</span>.</p>
                 <p class="about-text">
-                    Graduated with a Computer Science degree from the International University - Vietnam National
-                    University Ho Chi
-                    Minh City (Class of 2025) with a solid foundation in Software Development & IT Operations.
-                    Professional
-                    experience includes significant internships at leading technology companies: PHP Programmer at DotB
-                    (2023),
-                    gaining practical experience in web development, & IT Operations Intern at Bosch Digital of Bosch
-                    Global Software
-                    Technologies Vietnam (2025).
-                <!-- <p class="about-text">
-                    I specialize in creating accessible, user-centered designs that bridge the gap between aesthetics
-                    and functionality. My approach combines strategic thinking with creative execution to deliver
-                    products that users love and businesses can grow with.
-                </p> -->
+                    Graduated with a Computer Science degree from the International University - Vietnam National University Ho Chi Minh City (Class of 2025) with a solid foundation in Software Development and IT Operations. Professional experience includes significant internships at leading technology companies: PHP Programmer at DotB (2023), gaining practical experience in web development, and IT Operations Intern at Bosch Global Software Technologies Vietnam (2025). Currently working as an Application Operations Specialist at the Application Operations Center under the IT Department of Saigon Commercial Joint Stock Bank (Sacombank, Head Office), developing capabilities in IT Operations Management and Software Development. Passionate about applying technology to drive innovative solutions and committed to continuous learning in a collaborative, dynamic environment.
+                </p>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SKILLS SECTION
+             ============================================ -->
+        <section class="skills" id="skills">
+            <div class="skills-content">
+                <h2 class="section-title">Top Skills</h2>
+                <p class="skills-text">
+                    I specialize in Full-stack Software Development with expertise in modern Web Technologies, 
+                    IT Operations, Cloud-based Solutions, and Enterprise-specific Application Technologies.
+                </p>
+
+                <!-- Frontend & Backend Development -->
+                <div class="skill-category">
+                    <div class="category-label">Frontend & Backend Development</div>
+                    <div class="category-tools">
+                        <div class="tool-icon" title="JavaScript"><span>📱</span><span style="font-size: 10px; display: block; margin-top: 4px;">JavaScript</span></div>
+                        <div class="tool-icon" title="Node.js"><span>🟢</span><span style="font-size: 10px; display: block; margin-top: 4px;">Node.js</span></div>
+                        <div class="tool-icon" title="React.js"><span>⚛️</span><span style="font-size: 10px; display: block; margin-top: 4px;">React.js</span></div>
+                        <div class="tool-icon" title="Next.js"><span>▲</span><span style="font-size: 10px; display: block; margin-top: 4px;">Next.js</span></div>
+                        <div class="tool-icon" title="Express.js"><span>⚡</span><span style="font-size: 10px; display: block; margin-top: 4px;">Express.js</span></div>
+                        <div class="tool-icon" title="PHP"><span>🐘</span><span style="font-size: 10px; display: block; margin-top: 4px;">PHP</span></div>
+                        <div class="tool-icon" title="Python"><span>🐍</span><span style="font-size: 10px; display: block; margin-top: 4px;">Python</span></div>
+                        <div class="tool-icon" title="HTML/CSS"><span>🎨</span><span style="font-size: 10px; display: block; margin-top: 4px;">HTML/CSS</span></div>
+                    </div>
+                </div>
+
+                <!-- Database & Data Management -->
+                <div class="skill-category">
+                    <div class="category-label">Database & Data Management</div>
+                    <div class="category-tools">
+                        <div class="tool-icon" title="SQL"><span>🗄️</span><span style="font-size: 10px; display: block; margin-top: 4px;">SQL</span></div>
+                        <div class="tool-icon" title="Oracle"><span>🔴</span><span style="font-size: 10px; display: block; margin-top: 4px;">Oracle</span></div>
+                        <div class="tool-icon" title="MongoDB"><span>🍃</span><span style="font-size: 10px; display: block; margin-top: 4px;">MongoDB</span></div>
+                        <div class="tool-icon" title="MySQL"><span>🐬</span><span style="font-size: 10px; display: block; margin-top: 4px;">MySQL</span></div>
+                        <div class="tool-icon" title="Redis"><span>📊</span><span style="font-size: 10px; display: block; margin-top: 4px;">Redis</span></div>
+                        <div class="tool-icon" title="Elasticsearch"><span>🔍</span><span style="font-size: 10px; display: block; margin-top: 4px;">Elasticsearch</span></div>
+                    </div>
+                </div>
+
+                <!-- IT Operations & ITSM -->
+                <div class="skill-category">
+                    <div class="category-label">IT Operations & ITSM</div>
+                    <div class="category-tools">
+                        <div class="tool-icon" title="ServiceNow"><span>🔧</span><span style="font-size: 10px; display: block; margin-top: 4px;">ServiceNow</span></div>
+                        <div class="tool-icon" title="Active Directory"><span>🔐</span><span style="font-size: 10px; display: block; margin-top: 4px;">Active Dir</span></div>
+                        <div class="tool-icon" title="Temenos T24"><span>🏦</span><span style="font-size: 10px; display: block; margin-top: 4px;">Temenos T24</span></div>
+                        <div class="tool-icon" title="JBasic"><span>⚙️</span><span style="font-size: 10px; display: block; margin-top: 4px;">JBasic</span></div>
+                        <div class="tool-icon" title="Linux"><span>🐧</span><span style="font-size: 10px; display: block; margin-top: 4px;">Linux</span></div>
+                    </div>
+                </div>
+
+                <!-- DevOps & Cloud -->
+                <div class="skill-category">
+                    <div class="category-label">DevOps & Cloud Technologies</div>
+                    <div class="category-tools">
+                        <div class="tool-icon" title="Docker"><span>🐳</span><span style="font-size: 10px; display: block; margin-top: 4px;">Docker</span></div>
+                        <div class="tool-icon" title="Kibana"><span>📈</span><span style="font-size: 10px; display: block; margin-top: 4px;">Kibana</span></div>
+                        <div class="tool-icon" title="Git"><span>📂</span><span style="font-size: 10px; display: block; margin-top: 4px;">Git</span></div>
+                    </div>
+                </div>
+
+                <!-- CMS & Web Platforms -->
+                <div class="skill-category">
+                    <div class="category-label">CMS & Web Platforms</div>
+                    <div class="category-tools">
+                        <div class="tool-icon" title="WordPress"><span>📝</span><span style="font-size: 10px; display: block; margin-top: 4px;">WordPress</span></div>
+                        <div class="tool-icon" title="SugarCRM"><span>💼</span><span style="font-size: 10px; display: block; margin-top: 4px;">SugarCRM</span></div>
+                        <div class="tool-icon" title="MailChimp"><span>📧</span><span style="font-size: 10px; display: block; margin-top: 4px;">MailChimp</span></div>
+                    </div>
+                </div>
+
+                <!-- AI & Advanced Tools -->
+                <div class="skill-category">
+                    <div class="category-label">AI & Advanced Tools</div>
+                    <div class="category-tools">
+                        <div class="tool-icon" title="LangChain"><span>🔗</span><span style="font-size: 10px; display: block; margin-top: 4px;">LangChain</span></div>
+                        <div class="tool-icon" title="GPT & LLMs"><span>🤖</span><span style="font-size: 10px; display: block; margin-top: 4px;">GPT/LLMs</span></div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -1093,87 +154,89 @@
                 <div class="experience-grid">
                     <!-- Card 1: Newest -->
                     <div class="experience-card">
-                        <div class="card-icon">💼</div>
-                        <h3 class="card-title">Application Operations Specialist</h3>
-                        <p class="card-date">Dec 2025 – Present</p>
-                        <p class="card-company">Saigon Thuong Tin Commercial Joint Stock Bank (Sacombank) • Ho Chi Minh City, Vietnam</p>
-                        <div class="card-meta">
-                            <div class="meta-item"><span class="meta-label">TechStack:</span> Temenos T24, JBasic</div>
-                            <div class="meta-item"><span class="meta-label">Team:</span> 9+ members</div>
+                        <div class="experience-logo">
+                            <img src="STB.png" alt="Sacombank Logo" class="logo-image">
                         </div>
-                        <div class="card-highlights">
-                            <div class="highlight-item">Banking operations and system management with core banking platform expertise</div>
-                            <div class="highlight-item">Collaborating with cross-functional teams in a fast-paced financial environment</div>
-                            <div class="highlight-item">Ensuring system reliability and performance for critical business operations</div>
+                        <div class="experience-details">
+                            <h3 class="card-title">Application Operations Specialist</h3>
+                            <p class="card-company">Saigon Thuong Tin Commercial Joint Stock Bank (Sacombank) • Ho Chi Minh City, Vietnam</p>
+                            <p class="card-date">Dec 2025 – Present</p>
+                            <div class="card-highlights">
+                                <div class="highlight-item">Banking operations and system management with core banking platform expertise</div>
+                                <div class="highlight-item">Collaborating with cross-functional teams in a fast-paced financial environment</div>
+                                <div class="highlight-item">Ensuring system reliability and performance for critical business operations</div>
+                            </div>
                         </div>
                     </div>
                     <!-- Card 2 -->
                     <div class="experience-card">
-                        <div class="card-icon">💼</div>
-                        <h3 class="card-title">Web Application Developer</h3>
-                        <p class="card-date">Apr 2025 – Present</p>
-                        <p class="card-company">Anh Quan Technology Co., Ltd. (AQTech) • Ho Chi Minh City, Vietnam</p>
-                        <div class="card-meta">
-                            <div class="meta-item"><span class="meta-label">TechStack:</span> WordPress, HTML, CSS</div>
-                            <div class="meta-item"><span class="meta-label">Team:</span> 5 members</div>
+                        <div class="experience-logo">
+                            <img src="AQ.jpg" alt="AQ Logo" class="logo-image">
                         </div>
-                        <div class="card-highlights">
-                            <div class="highlight-item">Boosted conversion rates by designing & implementing responsive landing pages with advanced UX principles</div>
-                            <div class="highlight-item">Reduced page load times by 40% through custom WordPress theme optimization & performance enhancement techniques. Delivered custom WordPress plugins that automated business processes, saving hours weekly</div>
-                            <div class="highlight-item">Led technical documentation efforts for the development team, improving project handover efficiency</div>
+                        <div class="experience-details">
+                            <h3 class="card-title">Web Application Developer</h3>
+                            <p class="card-company">Anh Quan Technology Co., Ltd. (AQTech) • Ho Chi Minh City, Vietnam</p>
+                            <p class="card-date">Apr 2025 – Present</p>
+                            <div class="card-highlights">
+                                <div class="highlight-item">Boosted conversion rates by designing & implementing responsive landing pages with advanced UX principles</div>
+                                <div class="highlight-item">Reduced page load times by 40% through custom WordPress theme optimization & performance enhancement techniques. Delivered custom WordPress plugins that automated business processes, saving hours weekly</div>
+                                <div class="highlight-item">Led technical documentation efforts for the development team, improving project handover efficiency</div>
+                            </div>
                         </div>
                     </div>
                     <!-- Card 3 -->
                     <div class="experience-card">
-                        <div class="card-icon">💼</div>
-                        <h3 class="card-title">IT Operations Engineer – Intern</h3>
-                        <p class="card-date">Apr 2025 – Sep 2025</p>
-                        <p class="card-company">Bosch Global Software Technologies Vietnam • Ho Chi Minh City, Vietnam</p>
-                        <div class="card-meta">
-                            <div class="meta-item"><span class="meta-label">TechStack:</span> ITSM, ServiceNow, Active Directory, Oracle SQL</div>
-                            <div class="meta-item"><span class="meta-label">Team:</span> 8 members</div>
+                        <div class="experience-logo">
+                            <img src="BOSCH.png" alt="Bosch Logo" class="logo-image">
                         </div>
-                        <div class="card-highlights">
-                            <div class="highlight-item">Supported End-Users via SMT Ticket following ITIL Process with defined SLA & KPI requirements (L2 Level)</div>
-                            <div class="highlight-item">Contributed to problem investigation & change management processes. Worked with Oracle PL/SQL for database management & optimization. Provided support for new feature releases & hot-fixes implementation</div>
-                            <div class="highlight-item">Maintained & managed application servers to ensure optimal performance. Executed additional tasks & activities related to IT support as assigned by line manager</div>
+                        <div class="experience-details">
+                            <h3 class="card-title">IT Operations Engineer – Intern</h3>
+                            <p class="card-company">Bosch Global Software Technologies Vietnam • Ho Chi Minh City, Vietnam</p>
+                            <p class="card-date">Apr 2025 – Sep 2025</p>
+                            <div class="card-highlights">
+                                <div class="highlight-item">Supported End-Users via SMT Ticket following ITIL Process with defined SLA & KPI requirements (L2 Level)</div>
+                                <div class="highlight-item">Contributed to problem investigation & change management processes. Worked with Oracle PL/SQL for database management & optimization. Provided support for new feature releases & hot-fixes implementation</div>
+                                <div class="highlight-item">Maintained & managed application servers to ensure optimal performance. Executed additional tasks & activities related to IT support as assigned by line manager</div>
+                            </div>
                         </div>
                     </div>
                     <!-- Card 4 -->
                     <div class="experience-card">
-                        <div class="card-icon">💼</div>
-                        <h3 class="card-title">Web Application Developer</h3>
-                        <p class="card-date">Aug 2023 – Dec 2024</p>
-                        <p class="card-company">TheDigitalLab • Ho Chi Minh City, Vietnam</p>
-                        <div class="card-meta">
-                            <div class="meta-item"><span class="meta-label">TechStack:</span> WordPress, MailChimp, HTML, CSS</div>
-                            <div class="meta-item"><span class="meta-label">Team:</span> 3 members</div>
+                        <div class="experience-logo">
+                            <img src="TDL.jfif" alt="TheDigitalLab Logo" class="logo-image">
                         </div>
-                        <div class="card-highlights">
-                            <div class="highlight-item">Increased lead generation through development of high-converting landing pages & custom form integrations</div>
-                            <div class="highlight-item">Automated marketing workflows by integrating custom forms with MailChimp, processing 50+ leads monthly</div>
-                            <div class="highlight-item">Enhanced website functionality through strategic plugin research & implementation of performance-optimized solutions</div>
+                        <div class="experience-details">
+                            <h3 class="card-title">Web Application Developer</h3>
+                            <p class="card-company">TheDigitalLab • Ho Chi Minh City, Vietnam</p>
+                            <p class="card-date">Aug 2023 – Dec 2024</p>
+                            <div class="card-highlights">
+                                <div class="highlight-item">Increased lead generation through development of high-converting landing pages & custom form integrations</div>
+                                <div class="highlight-item">Automated marketing workflows by integrating custom forms with MailChimp, processing 50+ leads monthly</div>
+                                <div class="highlight-item">Enhanced website functionality through strategic plugin research & implementation of performance-optimized solutions</div>
+                            </div>
                         </div>
                     </div>
                     <!-- Card 5: Oldest -->
                     <div class="experience-card">
-                        <div class="card-icon">💼</div>
-                        <h3 class="card-title">Software Developer – Intern</h3>
-                        <p class="card-date">Apr 2023 – Apr 2024</p>
-                        <p class="card-company">DotB Educational Technology Joint Stock Company • Ho Chi Minh City, Vietnam</p>
-                        <div class="card-meta">
-                            <div class="meta-item"><span class="meta-label">TechStack:</span> PHP, MySQL, WordPress, SugarCRM, HTML, CSS</div>
-                            <div class="meta-item"><span class="meta-label">Team:</span> 9+ members</div>
+                        <div class="experience-logo">
+                            <img src="dotb.jfif" alt="Sacombank Logo" class="logo-image">
                         </div>
-                        <div class="card-highlights">
-                            <div class="highlight-item">Optimized system performance through code refactoring & database query optimization across multiple client websites. Developed custom SugarCRM integration APIs enabling seamless data flow between CRM & WordPress platforms</div>
-                            <div class="highlight-item">Built custom client websites from scratch, exceeding performance benchmarks & client expectations. Reduced website maintenance costs through implementation of automated update & backup systems</div>
-                            <div class="highlight-item">Collaborated with design & marketing teams to deliver cohesive digital solutions for education sector clients</div>
+                        <div class="experience-details">
+                            <h3 class="card-title">Software Developer – Intern</h3>
+                            <p class="card-company">DotB Educational Technology Joint Stock Company • Ho Chi Minh City, Vietnam</p>
+                            <p class="card-date">Apr 2023 – Apr 2024</p>
+                            <div class="card-highlights">
+                                <div class="highlight-item">Optimized system performance through code refactoring & database query optimization across multiple client websites. Developed custom SugarCRM integration APIs enabling seamless data flow between CRM & WordPress platforms</div>
+                                <div class="highlight-item">Built custom client websites from scratch, exceeding performance benchmarks & client expectations. Reduced website maintenance costs through implementation of automated update & backup systems</div>
+                                <div class="highlight-item">Collaborated with design & marketing teams to deliver cohesive digital solutions for education sector clients</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        
 
         <!-- ============================================
              PROJECTS SECTION
@@ -1253,6 +316,103 @@
         </section>
 
         <!-- ============================================
+             EDUCATION SECTION
+             ============================================ -->
+        <section class="education" id="education">
+            <div class="education-container">
+                <h2 class="section-title">Education</h2>
+                <div class="education-grid">
+                    <div class="education-card">
+                        <div class="education-logo">
+                            <img src="IU.png" alt="International University Logo" class="logo-image">
+                        </div>
+                        <div class="education-details">
+                            <h3 class="education-institution">International University - VNU Ho Chi Minh City</h3>
+                            <p class="education-degree">Engineer, Information Technology</p>
+                            <p class="education-duration">October 2020 - August 2025</p>
+                            <div class="education-highlights">
+                                <div class="edu-highlight">Strong foundation in Software Development & IT Operations</div>
+                                <div class="edu-highlight">Computer Science degree with practical industry experience</div>
+                                <div class="edu-highlight">Specialized knowledge in Full-stack Web Development & Cloud Technologies</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             AWARDS SECTION
+             ============================================ -->
+        <section class="awards" id="awards">
+            <div class="awards-container">
+                <h2 class="section-title">Honors & Awards</h2>
+                <div class="awards-grid">
+                    <div class="award-card">
+                        <div class="award-logo">
+                            <img src="solana.jpg" alt="International University Logo" class="award-logo-image">
+                        </div>
+                        <div class="award-header">
+                            <h3 class="award-title">Second Prize - IT Hackathon 2024</h3>
+                            <p class="award-issuer">Issued by Solana Vietnam · Jun 2024</p>
+                        </div>
+                        <p class="award-organization">Associated with International University - VNU HCMC</p>
+                        <div class="award-links">
+                            <a href="https://github.com/nguyensngoc108/Hackathon" target="_blank" rel="noopener noreferrer" class="award-link">GitHub Repository</a>
+                            <a href="https://dorahacks.io/buidl/14042" target="_blank" rel="noopener noreferrer" class="award-link">DoraHacks Submission</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             ORGANIZATIONS SECTION
+             ============================================ -->
+        <section class="organizations" id="organizations">
+            <div class="organizations-container">
+                <h2 class="section-title">Organizations</h2>
+                <div class="organizations-grid">
+                    <div class="org-card">
+                        <div class="org-logo">
+                            <img src="IU.png" alt="International University Logo" class="org-logo-image">
+                        </div>
+                        <div class="org-header">
+                            <h3 class="org-name">IT Youth Union - International University - VNUHCM</h3>
+                            <p class="org-position">Executive Committee of the Information Technology Youth Union</p>
+                            <p class="org-duration">Jan 2021 - Nov 2022</p>
+                        </div>
+                        <p class="org-association">Associated with International University - VNU HCMC</p>
+                    </div>
+
+                    <div class="org-card">
+                        <div class="org-logo">
+                            <img src="IU.png" alt="International University Logo" class="org-logo-image">
+                        </div>
+                        <div class="org-header">
+                            <h3 class="org-name">IT Youth Union - International University - VNUHCM</h3>
+                            <p class="org-position">PR Leader</p>
+                            <p class="org-duration">Jan 2021 - Dec 2021</p>
+                        </div>
+                        <p class="org-association">Associated with International University - VNU HCMC</p>
+                    </div>
+
+                    <div class="org-card">
+                        <div class="org-logo">
+                            <img src="IU.png" alt="International University Logo" class="org-logo-image">
+                        </div>
+                        <div class="org-header">
+                            <h3 class="org-name">IT Youth Union - International University - VNUHCM</h3>
+                            <p class="org-position">Designer</p>
+                            <p class="org-duration">Nov 2020 - Nov 2021</p>
+                        </div>
+                        <p class="org-association">Associated with International University - VNU HCMC</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
              CONTACT SECTION
              ============================================ -->
         <section class="contact">
@@ -1260,25 +420,17 @@
                 <h2 class="section-title">Contact</h2>
                 <p class="contact-email">dtthuan.contact@gmail.com</p>
                 <div class="social-links">
-                    <a href="https://github.com/ThuanTheBadLuckCoder" class="social-icon" target="_blank"
+                    <a href="https://github.com/thuandtr" class="social-icon" target="_blank"
                         rel="noopener noreferrer" title="GitHub">
                         🔗
                     </a>
-                    <a href="https://www.linkedin.com/in/dtrthuann/" class="social-icon" target="_blank"
+                    <a href="https://www.linkedin.com/in/thuandtr/" class="social-icon" target="_blank"
                         rel="noopener noreferrer" title="LinkedIn">
                         💼
                     </a>
-                    <a href="https://dribbble.com" class="social-icon" target="_blank" rel="noopener noreferrer"
-                        title="Dribbble">
-                        🎨
-                    </a>
-                    <a href="https://twitter.com" class="social-icon" target="_blank" rel="noopener noreferrer"
-                        title="Twitter">
-                        𝕏
-                    </a>
                 </div>
                 <div class="footer-text">
-                    <p>© 2026 Doan Tran Thuan. All rights reserved. | Designed & Developed with 💜</p>
+                    <p>Thuan, Doan Tran</p>
                 </div>
             </div>
         </section>
@@ -1287,85 +439,7 @@
     <!-- ============================================
          JAVASCRIPT FOR INTERACTIONS
          ============================================ -->
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add scroll effect to header
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.style.background = 'rgba(15, 5, 26, 0.95)';
-                header.style.boxShadow = '0 0 30px rgba(139, 92, 246, 0.2)';
-            } else {
-                header.style.background = 'rgba(15, 5, 26, 0.7)';
-                header.style.boxShadow = 'none';
-            }
-        });
-
-        // CTA button click handler
-        document.querySelector('.cta-button').addEventListener('click', () => {
-            const contactSection = document.querySelector('.contact');
-            contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-
-        // Add mouse tracking for hero section
-        const heroSection = document.querySelector('.hero');
-        document.addEventListener('mousemove', (e) => {
-            if (heroSection) {
-                const x = e.clientX / window.innerWidth;
-                const y = e.clientY / window.innerHeight;
-
-                const avatarGlow = document.querySelector('.avatar-glow');
-                if (avatarGlow) {
-                    avatarGlow.style.opacity = 0.15 + (y * 0.2);
-                }
-            }
-        });
-
-        // Experience cards - add interactive effect
-        document.querySelectorAll('.experience-card').forEach(card => {
-            card.addEventListener('mouseenter', function () {
-                this.style.borderColor = 'rgba(139, 92, 246, 0.8)';
-            });
-            card.addEventListener('mouseleave', function () {
-                this.style.borderColor = 'rgba(139, 92, 246, 0.3)';
-            });
-        });
-
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.experience-card, .project-item').forEach(el => {
-            el.style.opacity = '0.8';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'all 0.6s ease';
-            observer.observe(el);
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
