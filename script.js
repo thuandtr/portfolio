@@ -1,3 +1,30 @@
+// Hamburger Menu Toggle
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const navMenu = document.getElementById('navMenu');
+
+if (hamburgerBtn) {
+    hamburgerBtn.addEventListener('click', () => {
+        hamburgerBtn.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+}
+
+// Close menu when clicking on a nav link
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburgerBtn.classList.remove('active');
+        navMenu.classList.remove('active');
+    });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('header') && navMenu.classList.contains('active')) {
+        hamburgerBtn.classList.remove('active');
+        navMenu.classList.remove('active');
+    }
+});
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -33,18 +60,8 @@ if (ctaButton && ctaButton.tagName === 'BUTTON') {
     });
 }
 
-// Professional avatar interaction effect
-document.addEventListener('mousemove', (e) => {
-    const avatarImage = document.querySelector('.avatar-image');
-    if (avatarImage) {
-        const rect = avatarImage.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        const angle = Math.atan2(e.clientY - centerY, e.clientX - centerX);
-        
-        avatarImage.style.setProperty('--light-angle', `${angle}rad`);
-    }
-});
+// Professional avatar interaction effect - Disabled for LinkedIn badge
+// Avatar interaction moved to LinkedIn profile badge
 
 // Experience cards - add interactive effect
 document.querySelectorAll('.experience-card').forEach(card => {

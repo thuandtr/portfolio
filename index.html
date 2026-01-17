@@ -8,6 +8,12 @@
         content="Portfolio of a Software Engineer">
     <meta name="keywords" content="Software Engineer">
     <meta name="author" content="Doan Tran Thuan">
+    <meta property="og:title" content="THUAN, Doan Tran - Software Engineer">
+    <meta property="og:description" content="Portfolio of a Software Engineer with 3+ years of expertise in Full-stack Development and IT Operations">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#000000">
+    <link rel="preconnect" href="https://www.linkedin.com">
+    <link rel="dns-prefetch" href="https://platform.linkedin.com">
     <title>THUAN, Doan Tran</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -18,7 +24,12 @@
          ============================================ -->
     <header>
         <div class="nav-brand">thuandtr</div>
-        <nav>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav-menu" id="navMenu">
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#work-experience">Work Experience</a>
@@ -37,14 +48,14 @@
         <section class="hero" id="home">
             <div class="hero-content">
                 <div class="hero-avatar">
-                    <div class="avatar-glow"></div>
-                    <img src="https://media.licdn.com/dms/image/v2/D5603AQHS_fWEPyDJDA/profile-displayphoto-crop_800_800/B56ZulfxvqLMAI-/0/1768008132254?e=1769644800&v=beta&t=IYvF_7mYFu90iO7bdmtaRlbYpLXGyO8HJUbyfovi0Ng" alt="Profile" class="avatar-image">
+                     <img src="/Thuan.png" alt="Thuan D." class="avatar-img" loading="lazy">
+                    
                 </div>
                 <div class="hero-text">
                     <h1><span class="highlight">Ho Chi Minh City, </span>Vietnam</h1>
                     <h2>Thuan, <span class="accent">Doan</span>  Tran</h2>
                     <p style="text-align: justify; max-width: 100%;">3+ years of expertise in Full-stack Development and IT Operations. Specialized in building scalable applications, optimizing system performance, and leading technical transformations across financial and technology sectors.</p>
-                    <a href="https://www.linkedin.com/in/thuandtr/" target="_blank" rel="noopener noreferrer" class="cta-button">Connect With Me</a>
+                    <a href="/ThuanDoanTran_CV.pdf" target="_blank" rel="noopener noreferrer" class="cta-button">Download my CV</a>
                 </div>
             </div>
         </section>
@@ -85,6 +96,7 @@
                         <div class="tool-icon" title="Express.js"><span>⚡</span><span style="font-size: 10px; display: block; margin-top: 4px;">Express.js</span></div>
                         <div class="tool-icon" title="PHP"><span>🐘</span><span style="font-size: 10px; display: block; margin-top: 4px;">PHP</span></div>
                         <div class="tool-icon" title="Python"><span>🐍</span><span style="font-size: 10px; display: block; margin-top: 4px;">Python</span></div>
+                        <div class="tool-icon" title="JBasic"><span>⚙️</span><span style="font-size: 10px; display: block; margin-top: 4px;">JBasic</span></div>
                         <div class="tool-icon" title="HTML/CSS"><span>🎨</span><span style="font-size: 10px; display: block; margin-top: 4px;">HTML/CSS</span></div>
                     </div>
                 </div>
@@ -109,7 +121,6 @@
                         <div class="tool-icon" title="ServiceNow"><span>🔧</span><span style="font-size: 10px; display: block; margin-top: 4px;">ServiceNow</span></div>
                         <div class="tool-icon" title="Active Directory"><span>🔐</span><span style="font-size: 10px; display: block; margin-top: 4px;">Active Dir</span></div>
                         <div class="tool-icon" title="Temenos T24"><span>🏦</span><span style="font-size: 10px; display: block; margin-top: 4px;">Temenos T24</span></div>
-                        <div class="tool-icon" title="JBasic"><span>⚙️</span><span style="font-size: 10px; display: block; margin-top: 4px;">JBasic</span></div>
                         <div class="tool-icon" title="Linux"><span>🐧</span><span style="font-size: 10px; display: block; margin-top: 4px;">Linux</span></div>
                     </div>
                 </div>
@@ -155,7 +166,7 @@
                     <!-- Card 1: Newest -->
                     <div class="experience-card">
                         <div class="experience-logo">
-                            <img src="STB.png" alt="Sacombank Logo" class="logo-image">
+                            <img src="STB.png" alt="Sacombank Logo" class="logo-image" loading="lazy">
                         </div>
                         <div class="experience-details">
                             <h3 class="card-title">Application Operations Specialist</h3>
@@ -171,7 +182,7 @@
                     <!-- Card 2 -->
                     <div class="experience-card">
                         <div class="experience-logo">
-                            <img src="AQ.jpg" alt="AQ Logo" class="logo-image">
+                            <img src="AQ.jpg" alt="AQ Logo" class="logo-image" loading="lazy">
                         </div>
                         <div class="experience-details">
                             <h3 class="card-title">Web Application Developer</h3>
@@ -187,7 +198,7 @@
                     <!-- Card 3 -->
                     <div class="experience-card">
                         <div class="experience-logo">
-                            <img src="BOSCH.png" alt="Bosch Logo" class="logo-image">
+                            <img src="BOSCH.png" alt="Bosch Logo" class="logo-image" loading="lazy">
                         </div>
                         <div class="experience-details">
                             <h3 class="card-title">IT Operations Engineer – Intern</h3>
@@ -203,7 +214,7 @@
                     <!-- Card 4 -->
                     <div class="experience-card">
                         <div class="experience-logo">
-                            <img src="TDL.jfif" alt="TheDigitalLab Logo" class="logo-image">
+                            <img src="TDL.jfif" alt="TheDigitalLab Logo" class="logo-image" loading="lazy">
                         </div>
                         <div class="experience-details">
                             <h3 class="card-title">Web Application Developer</h3>
@@ -219,7 +230,7 @@
                     <!-- Card 5: Oldest -->
                     <div class="experience-card">
                         <div class="experience-logo">
-                            <img src="dotb.jfif" alt="Sacombank Logo" class="logo-image">
+                            <img src="dotb.jfif" alt="DotB Logo" class="logo-image" loading="lazy">
                         </div>
                         <div class="experience-details">
                             <h3 class="card-title">Software Developer – Intern</h3>
@@ -324,7 +335,7 @@
                 <div class="education-grid">
                     <div class="education-card">
                         <div class="education-logo">
-                            <img src="IU.png" alt="International University Logo" class="logo-image">
+                            <img src="IU.png" alt="International University Logo" class="logo-image" loading="lazy">
                         </div>
                         <div class="education-details">
                             <h3 class="education-institution">International University - VNU Ho Chi Minh City</h3>
@@ -350,7 +361,7 @@
                 <div class="awards-grid">
                     <div class="award-card">
                         <div class="award-logo">
-                            <img src="solana.jpg" alt="International University Logo" class="award-logo-image">
+                            <img src="solana.jpg" alt="Solana Vietnam Logo" class="award-logo-image" loading="lazy">
                         </div>
                         <div class="award-header">
                             <h3 class="award-title">Second Prize - IT Hackathon 2024</h3>
@@ -375,7 +386,7 @@
                 <div class="organizations-grid">
                     <div class="org-card">
                         <div class="org-logo">
-                            <img src="IU.png" alt="International University Logo" class="org-logo-image">
+                            <img src="ityu.jpg" alt="International University Logo" class="org-logo-image" loading="lazy">
                         </div>
                         <div class="org-header">
                             <h3 class="org-name">IT Youth Union - International University - VNUHCM</h3>
@@ -387,7 +398,7 @@
 
                     <div class="org-card">
                         <div class="org-logo">
-                            <img src="IU.png" alt="International University Logo" class="org-logo-image">
+                            <img src="ityu.jpg" alt="International University Logo" class="org-logo-image" loading="lazy">
                         </div>
                         <div class="org-header">
                             <h3 class="org-name">IT Youth Union - International University - VNUHCM</h3>
@@ -399,7 +410,7 @@
 
                     <div class="org-card">
                         <div class="org-logo">
-                            <img src="IU.png" alt="International University Logo" class="org-logo-image">
+                            <img src="ityu.jpg" alt="International University Logo" class="org-logo-image" loading="lazy">
                         </div>
                         <div class="org-header">
                             <h3 class="org-name">IT Youth Union - International University - VNUHCM</h3>
@@ -439,7 +450,8 @@
     <!-- ============================================
          JAVASCRIPT FOR INTERACTIONS
          ============================================ -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 </body>
 
 </html>
