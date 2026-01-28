@@ -92,6 +92,32 @@
             animation: scaleInUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
             opacity: 0;
         }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        @keyframes glowPulse {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(6, 182, 212, 0.4), 0 0 40px rgba(6, 182, 212, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(6, 182, 212, 0.6), 0 0 60px rgba(6, 182, 212, 0.3);
+            }
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-glowPulse {
+            animation: glowPulse 4s ease-in-out infinite;
+        }
         
     </style>
 </head>
@@ -143,9 +169,16 @@
         <section id="home" class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 animate-fadeIn">
             <div class="max-w-6xl w-full">
                 <div class="flex flex-col md:flex-row items-center gap-12">
-                    <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-cyan-400 shadow-lg shadow-cyan-400/50 flex-shrink-0 hover:shadow-2xl hover:shadow-cyan-400/70 transition-all duration-500 transform hover:scale-110">
-                        <div class="w-full h-full bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-6xl animate-pulse">
+                    <div class="relative w-48 h-48 md:w-64 md:h-64 flex-shrink-0 animate-float animate-glowPulse rounded-[100%]
+">
+                        <!-- Outer border glow -->
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-400 p-1 opacity-100"></div>
+                        <!-- Inner container -->
+                        <div class="absolute inset-1 rounded-full bg-gray-900 overflow-hidden shadow-2xl shadow-cyan-400/40 hover:shadow-cyan-400/60 transition-all duration-300">
+                            <!-- Avatar image -->
                             <img src="Thuan.png" class="w-full h-full object-cover"/>
+                            <!-- Overlay for professional effect -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/30 to-transparent"></div>
                         </div>
                     </div>
                     
