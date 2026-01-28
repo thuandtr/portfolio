@@ -11,6 +11,8 @@
     <meta property="og:type" content="website">
     <meta name="theme-color" content="#000000">
     <title>THUAN, Doan Tran</title>
+    <!-- Favicon as Computer Icon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad1' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%2306B6D4;stop-opacity:1' /><stop offset='100%' style='stop-color:%2306B6D4;stop-opacity:1' /></linearGradient></defs><rect x='12' y='10' width='76' height='48' rx='3' fill='url(%23grad1)' stroke='%230891B2' stroke-width='2'/><rect x='18' y='16' width='64' height='36' fill='%23000' rx='2'/><rect x='20' y='18' width='60' height='32' fill='%23001F3F'/><circle cx='30' cy='28' r='3' fill='%2306B6D4'/><circle cx='42' cy='28' r='3' fill='%2306B6D4'/><circle cx='54' cy='28' r='3' fill='%2306B6D4'/><circle cx='66' cy='28' r='3' fill='%2306B6D4'/><line x1='24' y1='35' x2='76' y2='35' stroke='%2306B6D4' stroke-width='1' opacity='0.6'/><line x1='24' y1='40' x2='76' y2='40' stroke='%2306B6D4' stroke-width='1' opacity='0.5'/><line x1='24' y1='45' x2='76' y2='45' stroke='%2306B6D4' stroke-width='1' opacity='0.4'/><rect x='38' y='62' width='24' height='3' fill='%230891B2'/><rect x='35' y='65' width='30' height='2' fill='%2306B6D4'/></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @keyframes fadeIn {
@@ -44,6 +46,29 @@
             }
         }
 
+        @keyframes jumpOnce {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleInUp {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
         .animate-fadeIn {
             animation: fadeIn 0.6s ease-out forwards;
             opacity: 0;
@@ -58,6 +83,16 @@
             animation: slideInUp 0.8s ease-out forwards;
             opacity: 0;
         }
+
+        .animate-jumpOnce {
+            animation: jumpOnce 0.5s ease-in-out;
+        }
+
+        .animate-scaleInUp {
+            animation: scaleInUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            opacity: 0;
+        }
+        
     </style>
 </head>
 
@@ -81,6 +116,7 @@
                     <a href="#skills" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 relative group text-sm lg:text-base">Skills<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
                     <a href="#projects" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 relative group text-sm lg:text-base">Projects<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
                     <a href="#education" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 relative group text-sm lg:text-base">Education<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
+                    <a href="#courses" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 relative group text-sm lg:text-base">Courses<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
                     <a href="#awards" class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 relative group text-sm lg:text-base">Awards<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
                 </nav>
             </div>
@@ -94,6 +130,7 @@
                     <a href="#skills" class="text-gray-300 hover:text-cyan-400 transition-all duration-300 px-4 py-2 hover:translate-x-2 rounded hover:bg-gray-800/50">Skills</a>
                     <a href="#projects" class="text-gray-300 hover:text-cyan-400 transition-all duration-300 px-4 py-2 hover:translate-x-2 rounded hover:bg-gray-800/50">Projects</a>
                     <a href="#education" class="text-gray-300 hover:text-cyan-400 transition-all duration-300 px-4 py-2 hover:translate-x-2 rounded hover:bg-gray-800/50">Education</a>
+                    <a href="#courses" class="text-gray-300 hover:text-cyan-400 transition-all duration-300 px-4 py-2 hover:translate-x-2 rounded hover:bg-gray-800/50">Courses</a>
                     <a href="#awards" class="text-gray-300 hover:text-cyan-400 transition-all duration-300 px-4 py-2 hover:translate-x-2 rounded hover:bg-gray-800/50">Awards</a>
                     <a href="#organizations" class="text-gray-300 hover:text-cyan-400 transition-all duration-300 px-4 py-2 hover:translate-x-2 rounded hover:bg-gray-800/50">Organizations</a>
                 </div>
@@ -123,12 +160,8 @@
                         <p class="text-gray-300 text-lg leading-relaxed mb-8 max-w-2xl animate-slideInRight" style="animation-delay: 0.2s">
                             3+ years of expertise in Full-stack Development and IT Operations. Specialized in building scalable applications, optimizing system performance, and leading technical transformations across financial and technology sectors.
                         </p>
-                        <a href="https://raw.githubusercontent.com/thuandtr/portfolio/main/DoanTranThuan_CV_2026.pdf" 
-                           download="DoanTranThuan_CV_2026.pdf"
-                           target="_blank" 
-                           rel="noopener noreferrer" 
-                           class="inline-block bg-cyan-500 hover:bg-cyan-600 text-gray-900 font-semibold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/50 shadow-md animate-slideInRight" 
-                           style="animation-delay: 0.3s">
+                        <a href="/ThuanDoanTran_CV.pdf" target="_blank" rel="noopener noreferrer" 
+                           class="inline-block bg-cyan-500 hover:bg-cyan-600 text-gray-900 font-semibold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/50 shadow-md animate-slideInRight" style="animation-delay: 0.3s">
                             Download my CV
                         </a>
                     </div>
@@ -185,55 +218,55 @@
                         <h3 class="text-xl font-semibold text-cyan-400 mb-4">Frontend & Backend Development</h3>
                         <div class="flex flex-wrap gap-4">
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">📱</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">📱</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">JavaScript</span>
                             </div>
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">🟢</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🟢</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Node.js</span>
                             </div>
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">⚛️</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">⚛️</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">React.js</span>
                             </div>
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">▲</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">▲</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Next.js</span>
                             </div>
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">⚡</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">⚡</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Express.js</span>
                             </div>
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">🐘</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🐘</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">PHP</span>
                             </div>
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">🐍</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🐍</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Python</span>
                             </div>
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">⚙️</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">⚙️</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">JBasic</span>
                             </div>
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">🎨</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🎨</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">HTML/CSS</span>
                             </div>
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">🔷</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🔷</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">C/C++</span>
                             </div>
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">☕</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">☕</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Java</span>
                             </div>
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">🐹</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🐹</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Golang</span>
                             </div>
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">🎯</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🎯</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Kotlin</span>
                             </div>
                         </div>
@@ -244,27 +277,27 @@
                         <h3 class="text-xl font-semibold text-cyan-400 mb-4">Database & Data Management</h3>
                         <div class="flex flex-wrap gap-4">
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">🗄️</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🗄️</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">SQL</span>
                             </div>
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">🔴</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🔴</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Oracle</span>
                             </div>
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">🍃</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🍃</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">MongoDB</span>
                             </div>
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">🐬</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🐬</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">MySQL</span>
                             </div>
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">📊</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">📊</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Redis</span>
                             </div>
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">🔍</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🔍</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Elasticsearch</span>
                             </div>
                         </div>
@@ -275,19 +308,19 @@
                         <h3 class="text-xl font-semibold text-cyan-400 mb-4">IT Operations & ITSM</h3>
                         <div class="flex flex-wrap gap-4">
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">🔧</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🔧</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">ServiceNow</span>
                             </div>
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">🔐</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🔐</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Active Dir</span>
                             </div>
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">🏦</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🏦</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Temenos T24</span>
                             </div>
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">🐧</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🐧</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Linux</span>
                             </div>
                         </div>
@@ -298,15 +331,15 @@
                         <h3 class="text-xl font-semibold text-cyan-400 mb-4">DevOps & Cloud Technologies</h3>
                         <div class="flex flex-wrap gap-4">
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">🐳</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🐳</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Docker</span>
                             </div>
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">📈</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">📈</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Kibana</span>
                             </div>
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">📂</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">📂</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Git</span>
                             </div>
                         </div>
@@ -317,15 +350,15 @@
                         <h3 class="text-xl font-semibold text-cyan-400 mb-4">CMS & Web Platforms</h3>
                         <div class="flex flex-wrap gap-4">
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">📝</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">📝</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">WordPress</span>
                             </div>
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">💼</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">💼</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">SugarCRM</span>
                             </div>
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">📧</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">📧</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">MailChimp</span>
                             </div>
                         </div>
@@ -336,11 +369,11 @@
                         <h3 class="text-xl font-semibold text-cyan-400 mb-4">AI & Advanced Tools</h3>
                         <div class="flex flex-wrap gap-4">
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">🔗</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🔗</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">LangChain</span>
                             </div>
                             <div class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-bounce">🤖</span>
+                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🤖</span>
                                 <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">GPT/LLMs</span>
                             </div>
                         </div>
@@ -358,7 +391,7 @@
                     <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-2 animate-fadeIn group" style="animation-delay: 0.1s">
                         <div class="flex flex-col md:flex-row gap-6">
                             <div class="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                                <span class="text-3xl group-hover:animate-bounce">🏦</span>
+                                <span class="text-3xl group-hover:animate-jumpOnce">🏦</span>
                             </div>
                             <div class="flex-1">
                                 <h3 class="text-2xl font-bold text-cyan-400 mb-2 group-hover:text-cyan-300 transition-colors">Application Operations Specialist</h3>
@@ -367,15 +400,18 @@
                                 <div class="space-y-2">
                                     <div class="flex items-start gap-2">
                                         <span class="text-cyan-400 mt-1">•</span>
-                                        <p class="text-gray-300 group-hover:text-gray-100 transition-colors">Banking operations and system management with core banking platform expertise</p>
+                                        <p class="text-gray-300 group-hover:text-gray-100 transition-colors">Engineered T24 solutions encompassing version design, routine development, and screen customization to
+                                            streamline core banking workflows including account management and transaction processing functions</p>
                                     </div>
                                     <div class="flex items-start gap-2">
                                         <span class="text-cyan-400 mt-1">•</span>
-                                        <p class="text-gray-300 group-hover:text-gray-100 transition-colors">Collaborating with cross-functional teams in a fast-paced financial environment</p>
+                                        <p class="text-gray-300 group-hover:text-gray-100 transition-colors">Developed scalable batch and real-time services utilizing multi-threading techniques to process large-scale
+                                            transaction data efficiently, ensuring system stability under high-volume operations</p>
                                     </div>
                                     <div class="flex items-start gap-2">
                                         <span class="text-cyan-400 mt-1">•</span>
-                                        <p class="text-gray-300 group-hover:text-gray-100 transition-colors">Ensuring system reliability and performance for critical business operations</p>
+                                        <p class="text-gray-300 group-hover:text-gray-100 transition-colors">Applied extensive expertise in international payment business processes, SWIFT protocols, and payment
+                                            documentation systems to support the bank's global payment infrastructure</p>
                                     </div>
                                 </div>
                             </div>
@@ -386,7 +422,7 @@
                     <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-2 animate-fadeIn group" style="animation-delay: 0.15s">
                         <div class="flex flex-col md:flex-row gap-6">
                             <div class="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                                <span class="text-3xl group-hover:animate-bounce">💻</span>
+                                <span class="text-3xl group-hover:animate-jumpOnce">💻</span>
                             </div>
                             <div class="flex-1">
                                 <h3 class="text-2xl font-bold text-cyan-400 mb-2 group-hover:text-cyan-300 transition-colors">Web Application Developer</h3>
@@ -414,7 +450,7 @@
                     <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-2 animate-fadeIn group" style="animation-delay: 0.2s">
                         <div class="flex flex-col md:flex-row gap-6">
                             <div class="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                                <span class="text-3xl group-hover:animate-bounce">⚙️</span>
+                                <span class="text-3xl group-hover:animate-jumpOnce">⚙️</span>
                             </div>
                             <div class="flex-1">
                                 <h3 class="text-2xl font-bold text-cyan-400 mb-2 group-hover:text-cyan-300 transition-colors">IT Operations Engineer – Intern</h3>
@@ -442,7 +478,7 @@
                     <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-2 animate-fadeIn group" style="animation-delay: 0.25s">
                         <div class="flex flex-col md:flex-row gap-6">
                             <div class="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                                <span class="text-3xl group-hover:animate-bounce">🌐</span>
+                                <span class="text-3xl group-hover:animate-jumpOnce">🌐</span>
                             </div>
                             <div class="flex-1">
                                 <h3 class="text-2xl font-bold text-cyan-400 mb-2 group-hover:text-cyan-300 transition-colors">Web Application Developer</h3>
@@ -470,7 +506,7 @@
                     <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-2 animate-fadeIn group" style="animation-delay: 0.3s">
                         <div class="flex flex-col md:flex-row gap-6">
                             <div class="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                                <span class="text-3xl group-hover:animate-bounce">👨‍💻</span>
+                                <span class="text-3xl group-hover:animate-jumpOnce">👨‍💻</span>
                             </div>
                             <div class="flex-1">
                                 <h3 class="text-2xl font-bold text-cyan-400 mb-2 group-hover:text-cyan-300 transition-colors">Software Developer – Intern</h3>
@@ -593,44 +629,114 @@
 
         <!-- EDUCATION SECTION -->
         <section id="education" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800/50">
-    <div class="max-w-6xl mx-auto">
-        <h2 class="text-4xl font-bold mb-12 text-center animate-fadeIn">Education</h2>
-        <div class="bg-gray-800 rounded-lg p-8 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-2 animate-fadeIn group">
-            <div class="flex flex-col md:flex-row gap-6">
-                <div class="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                    <span class="text-4xl group-hover:animate-bounce">🎓</span>
-                </div>
-                <div class="flex-1">
-                    <h3 class="text-2xl font-bold text-cyan-400 mb-2 group-hover:text-cyan-300 transition-colors">International University - VNU Ho Chi Minh City</h3>
-                    <p class="text-xl text-gray-300 mb-1">Engineering, Information Technology</p>
-                    <p class="text-gray-400 mb-4">October 2020 - August 2025</p>
-                    <div class="space-y-2">
-                        <div class="flex items-start gap-2">
-                            <span class="text-cyan-400 mt-1">•</span>
-                            <p class="text-gray-300 group-hover:text-gray-100 transition-colors"><strong>Programming & Software Development:</strong> C/C++ Programming, Object-Oriented Programming, Data Structures & Algorithms, Software Engineering, Object-Oriented Analysis & Design</p>
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl font-bold mb-12 text-center animate-fadeIn">Education</h2>
+                <div class="bg-gray-800 rounded-lg p-8 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-2 animate-fadeIn group">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
+                            <span class="text-4xl group-hover:animate-jumpOnce">🎓</span>
                         </div>
-                        <div class="flex items-start gap-2">
-                            <span class="text-cyan-400 mt-1">•</span>
-                            <p class="text-gray-300 group-hover:text-gray-100 transition-colors"><strong>Web & Mobile Technologies:</strong> Web Application Development, Mobile Application Development, Net-Centric Programming</p>
-                        </div>
-                        <div class="flex items-start gap-2">
-                            <span class="text-cyan-400 mt-1">•</span>
-                            <p class="text-gray-300 group-hover:text-gray-100 transition-colors"><strong>Data & AI:</strong> Database Systems & Data Visualization, Data Mining, Introduction to Artificial Intelligence</p>
-                        </div>
-                        <div class="flex items-start gap-2">
-                            <span class="text-cyan-400 mt-1">•</span>
-                            <p class="text-gray-300 group-hover:text-gray-100 transition-colors"><strong>System & Infrastructure:</strong> Computer Architecture, Operating Systems, Computer Networks, Digital Logic Design, Information System Management</p>
-                        </div>
-                        <div class="flex items-start gap-2">
-                            <span class="text-cyan-400 mt-1">•</span>
-                            <p class="text-gray-300 group-hover:text-gray-100 transition-colors"><strong>Mathematics & Theory:</strong> Calculus I-III, Discrete Mathematics, Probability & Data Modeling, Theory of Machine Computation</p>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-cyan-400 mb-2 group-hover:text-cyan-300 transition-colors">International University - VNU Ho Chi Minh City</h3>
+                            <p class="text-xl text-gray-300 mb-1">Engineer, Information Technology</p>
+                            <p class="text-gray-400 mb-4">October 2020 - August 2025</p>
+                            <div class="space-y-2">
+                                <div class="flex items-start gap-2">
+                                    <span class="text-cyan-400 mt-1">•</span>
+                                    <p class="text-gray-300 group-hover:text-gray-100 transition-colors">Strong foundation in Software Development & IT Operations</p>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <span class="text-cyan-400 mt-1">•</span>
+                                    <p class="text-gray-300 group-hover:text-gray-100 transition-colors">Computer Science degree with practical industry experience</p>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <span class="text-cyan-400 mt-1">•</span>
+                                    <p class="text-gray-300 group-hover:text-gray-100 transition-colors">Specialized knowledge in Full-stack Web Development & Cloud Technologies</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
+
+        <!-- COURSES SECTION -->
+        <section id="courses" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800/50">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl font-bold mb-12 text-center animate-fadeIn">Courses & Certifications</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Course 1 -->
+                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-1 animate-fadeIn group" style="animation-delay: 0.1s">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
+                                <span class="text-2xl group-hover:animate-jumpOnce">🌐</span>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-lg font-semibold text-cyan-400 mb-1">English Language Proficiency: IELTS Academic (B2 Level)</h3>
+                                <p class="text-gray-300 text-sm mb-2">IDP • August 2025</p>
+                                <p class="text-gray-400 text-xs">International English Language Testing System</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course 2 -->
+                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-1 animate-fadeIn group" style="animation-delay: 0.15s">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
+                                <span class="text-2xl group-hover:animate-jumpOnce">💻</span>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-lg font-semibold text-cyan-400 mb-1">The Complete JavaScript Course 2025: From Zero to Expert!</h3>
+                                <p class="text-gray-300 text-sm mb-2">Udemy Bosch • July 2025</p>
+                                <p class="text-gray-400 text-xs">JavaScript, ES6+, DOM, Async/Await, APIs</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course 3 -->
+                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-1 animate-fadeIn group" style="animation-delay: 0.2s">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
+                                <span class="text-2xl group-hover:animate-jumpOnce">⚛️</span>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-lg font-semibold text-cyan-400 mb-1">React - The Complete Guide 2025 (incl. Next.js, Redux)</h3>
+                                <p class="text-gray-300 text-sm mb-2">Udemy Bosch • September 2025</p>
+                                <p class="text-gray-400 text-xs">React, Next.js, Redux, Hooks, State Management</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course 4 -->
+                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-1 animate-fadeIn group" style="animation-delay: 0.25s">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
+                                <span class="text-2xl group-hover:animate-jumpOnce">🔧</span>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-lg font-semibold text-cyan-400 mb-1">ServiceNow ITSM from 0 to Hero</h3>
+                                <p class="text-gray-300 text-sm mb-2">Udemy Bosch • September 2025</p>
+                                <p class="text-gray-400 text-xs">ServiceNow, ITSM, Incident Management, Configuration Management</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course 5 -->
+                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-1 animate-fadeIn group" style="animation-delay: 0.3s">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
+                                <span class="text-2xl group-hover:animate-jumpOnce">🚀</span>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-lg font-semibold text-cyan-400 mb-1">The Complete Full-Stack Web Development Bootcamp</h3>
+                                <p class="text-gray-300 text-sm mb-2">Udemy Bosch • October 2025</p>
+                                <p class="text-gray-400 text-xs">Full-Stack Development, Frontend & Backend, Deployment</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- AWARDS SECTION -->
         <section id="awards" class="py-20 px-4 sm:px-6 lg:px-8">
@@ -639,7 +745,7 @@
                 <div class="bg-gray-800 rounded-lg p-8 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-2 animate-fadeIn group">
                     <div class="flex flex-col md:flex-row gap-6">
                         <div class="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                            <span class="text-4xl group-hover:animate-bounce">🏆</span>
+                            <span class="text-4xl group-hover:animate-jumpOnce">🏆</span>
                         </div>
                         <div class="flex-1">
                             <h3 class="text-2xl font-bold text-cyan-400 mb-2 group-hover:text-cyan-300 transition-colors">Second Prize - IT Hackathon 2024</h3>
@@ -669,7 +775,7 @@
                     <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-2 animate-fadeIn group" style="animation-delay: 0.1s">
                         <div class="flex flex-col md:flex-row gap-6">
                             <div class="w-16 h-16 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                                <span class="text-3xl group-hover:animate-bounce">🎯</span>
+                                <span class="text-3xl group-hover:animate-jumpOnce">🎯</span>
                             </div>
                             <div class="flex-1">
                                 <h3 class="text-xl font-bold text-cyan-400 mb-1 group-hover:text-cyan-300 transition-colors">IT Youth Union - International University - VNUHCM</h3>
@@ -683,7 +789,7 @@
                     <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-2 animate-fadeIn group" style="animation-delay: 0.2s">
                         <div class="flex flex-col md:flex-row gap-6">
                             <div class="w-16 h-16 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                                <span class="text-3xl group-hover:animate-bounce">📢</span>
+                                <span class="text-3xl group-hover:animate-jumpOnce">📢</span>
                             </div>
                             <div class="flex-1">
                                 <h3 class="text-xl font-bold text-cyan-400 mb-1 group-hover:text-cyan-300 transition-colors">IT Youth Union - International University - VNUHCM</h3>
@@ -697,7 +803,7 @@
                     <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-2 animate-fadeIn group" style="animation-delay: 0.3s">
                         <div class="flex flex-col md:flex-row gap-6">
                             <div class="w-16 h-16 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                                <span class="text-3xl group-hover:animate-bounce">🎨</span>
+                                <span class="text-3xl group-hover:animate-jumpOnce">🎨</span>
                             </div>
                             <div class="flex-1">
                                 <h3 class="text-xl font-bold text-cyan-400 mb-1 group-hover:text-cyan-300 transition-colors">IT Youth Union - International University - VNUHCM</h3>
