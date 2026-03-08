@@ -8,1179 +8,1234 @@
     <meta name="keywords" content="Software Engineer">
     <meta name="author" content="Doan Tran Thuan">
     <meta property="og:title" content="THUAN, Doan Tran - Software Engineer">
-    <meta property="og:description"
-        content="Portfolio of a Software Engineer with 3+ years of expertise in Full-stack Development and IT Operations">
+    <meta property="og:description" content="Portfolio of a Software Engineer with 3+ years of expertise in Full-stack Development and IT Operations">
     <meta property="og:type" content="website">
     <meta name="theme-color" content="#000000">
     <title>THUAN, Doan Tran</title>
-    <!-- Favicon as Computer Icon -->
-    <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad1' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%2306B6D4;stop-opacity:1' /><stop offset='100%' style='stop-color:%2306B6D4;stop-opacity:1' /></linearGradient></defs><rect x='12' y='10' width='76' height='48' rx='3' fill='url(%23grad1)' stroke='%230891B2' stroke-width='2'/><rect x='18' y='16' width='64' height='36' fill='%23000' rx='2'/><rect x='20' y='18' width='60' height='32' fill='%23001F3F'/><circle cx='30' cy='28' r='3' fill='%2306B6D4'/><circle cx='42' cy='28' r='3' fill='%2306B6D4'/><circle cx='54' cy='28' r='3' fill='%2306B6D4'/><circle cx='66' cy='28' r='3' fill='%2306B6D4'/><line x1='24' y1='35' x2='76' y2='35' stroke='%2306B6D4' stroke-width='1' opacity='0.6'/><line x1='24' y1='40' x2='76' y2='40' stroke='%2306B6D4' stroke-width='1' opacity='0.5'/><line x1='24' y1='45' x2='76' y2='45' stroke='%2306B6D4' stroke-width='1' opacity='0.4'/><rect x='38' y='62' width='24' height='3' fill='%230891B2'/><rect x='35' y='65' width='30' height='2' fill='%2306B6D4'/></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad1' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%2306B6D4;stop-opacity:1' /><stop offset='100%' style='stop-color:%2306B6D4;stop-opacity:1' /></linearGradient></defs><rect x='12' y='10' width='76' height='48' rx='3' fill='url(%23grad1)' stroke='%230891B2' stroke-width='2'/><rect x='18' y='16' width='64' height='36' fill='%23000' rx='2'/><rect x='20' y='18' width='60' height='32' fill='%23001F3F'/><circle cx='30' cy='28' r='3' fill='%2306B6D4'/><circle cx='42' cy='28' r='3' fill='%2306B6D4'/><circle cx='54' cy='28' r='3' fill='%2306B6D4'/><circle cx='66' cy='28' r='3' fill='%2306B6D4'/><line x1='24' y1='35' x2='76' y2='35' stroke='%2306B6D4' stroke-width='1' opacity='0.6'/><line x1='24' y1='40' x2='76' y2='40' stroke='%2306B6D4' stroke-width='1' opacity='0.5'/><line x1='24' y1='45' x2='76' y2='45' stroke='%2306B6D4' stroke-width='1' opacity='0.4'/><rect x='38' y='62' width='24' height='3' fill='%230891B2'/><rect x='35' y='65' width='30' height='2' fill='%2306B6D4'/></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
+        :root {
+            --cyan: #06B6D4;
+            --cyan-dim: rgba(6,182,212,0.15);
+            --cyan-glow: rgba(6,182,212,0.4);
+            --bg: #060a10;
+            --bg-card: #0d1117;
+            --border: rgba(6,182,212,0.2);
         }
 
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
+        * { box-sizing: border-box; }
 
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        body {
+            background-color: var(--bg);
+            color: #e2e8f0;
+            font-family: 'Syne', sans-serif;
+            antialiased: true;
+            overflow-x: hidden;
         }
 
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
+        code, .mono { font-family: 'JetBrains Mono', monospace; }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* ── SCROLL PROGRESS BAR ── */
+        #progress-bar {
+            position: fixed;
+            top: 0; left: 0;
+            height: 2px;
+            width: 0%;
+            background: linear-gradient(90deg, #06B6D4, #818cf8, #06B6D4);
+            background-size: 200% 100%;
+            z-index: 9999;
+            transition: width 0.1s linear;
+            animation: shimmer 2s linear infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
         }
 
-        @keyframes jumpOnce {
-            0% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-8px);
-            }
-
-            100% {
-                transform: translateY(0);
-            }
+        /* ── GRID BACKGROUND ── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(6,182,212,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(6,182,212,0.04) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: 0;
         }
 
-        @keyframes scaleInUp {
-            from {
-                opacity: 0;
-                transform: scale(0.95) translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
+        /* ── CANVAS PARTICLES ── */
+        #particle-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.5;
         }
 
-        .animate-fadeIn {
-            animation: fadeIn 0.6s ease-out forwards;
+        /* ── CURSOR GLOW ── */
+        #cursor-glow {
+            position: fixed;
+            width: 300px; height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(6,182,212,0.06) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s;
+        }
+
+        /* ── HEADER ── */
+        header {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: rgba(6,10,16,0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            z-index: 50;
+        }
+
+        /* Active nav link */
+        nav a.active-nav {
+            color: var(--cyan) !important;
+        }
+        nav a.active-nav span {
+            width: 100% !important;
+        }
+
+        /* Hamburger → X transition */
+        #hamburgerBtn.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        #hamburgerBtn.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        #hamburgerBtn.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        #hamburgerBtn span { transition: all 0.3s ease; display: block; }
+
+        /* ── REVEAL ANIMATIONS (IntersectionObserver driven) ── */
+        .reveal {
             opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.65s cubic-bezier(.16,1,.3,1), transform 0.65s cubic-bezier(.16,1,.3,1);
         }
-
-        .animate-slideInRight {
-            animation: slideInRight 0.8s ease-out forwards;
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
             opacity: 0;
+            transform: translateX(-28px);
+            transition: opacity 0.65s cubic-bezier(.16,1,.3,1), transform 0.65s cubic-bezier(.16,1,.3,1);
+        }
+        .reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+        /* stagger children */
+        .stagger > *:nth-child(1) { transition-delay: 0s; }
+        .stagger > *:nth-child(2) { transition-delay: 0.08s; }
+        .stagger > *:nth-child(3) { transition-delay: 0.16s; }
+        .stagger > *:nth-child(4) { transition-delay: 0.24s; }
+        .stagger > *:nth-child(5) { transition-delay: 0.32s; }
+        .stagger > *:nth-child(6) { transition-delay: 0.40s; }
+
+        /* ── HERO SPECIFIC ── */
+        .hero-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--cyan);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
         }
 
-        .animate-slideInUp {
-            animation: slideInUp 0.8s ease-out forwards;
-            opacity: 0;
+        /* Typing cursor */
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s step-end infinite;
+            color: var(--cyan);
+            font-weight: 300;
         }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
-        .animate-jumpOnce {
-            animation: jumpOnce 0.5s ease-in-out;
-        }
-
-        .animate-scaleInUp {
-            animation: scaleInUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-            opacity: 0;
-        }
-
+        /* Avatar */
         @keyframes float {
+            0%,100%{ transform: translateY(0px); }
+            50%{ transform: translateY(-10px); }
+        }
+        @keyframes ring-spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .avatar-ring {
+            animation: ring-spin 8s linear infinite;
+        }
+        .avatar-float { animation: float 4s ease-in-out infinite; }
 
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
+        @keyframes glow-pulse {
+            0%,100%{ box-shadow: 0 0 20px rgba(6,182,212,0.3), 0 0 60px rgba(6,182,212,0.1); }
+            50%{ box-shadow: 0 0 40px rgba(6,182,212,0.5), 0 0 80px rgba(6,182,212,0.2); }
+        }
+        .glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
 
-            50% {
-                transform: translateY(-8px);
-            }
+        /* ── SECTION TITLE decorator ── */
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            height: 2px;
+            width: 0;
+            background: linear-gradient(90deg, var(--cyan), transparent);
+            margin-top: 6px;
+            transition: width 0.8s cubic-bezier(.16,1,.3,1) 0.3s;
+        }
+        .section-title.visible::after { width: 100%; }
+
+        /* ── CARDS ── */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(6,182,212,0.06), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.4s;
+            pointer-events: none;
+        }
+        .card:hover::before { opacity: 1; }
+        .card:hover {
+            border-color: rgba(6,182,212,0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(6,182,212,0.12);
         }
 
-        @keyframes glowPulse {
+        /* ── SKILL BADGE ── */
+        .skill-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            padding: 14px 12px;
+            min-width: 80px;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(.34,1.56,.64,1);
+            position: relative;
+            overflow: hidden;
+        }
+        .skill-badge::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(6,182,212,0.12), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .skill-badge:hover {
+            border-color: var(--cyan);
+            transform: scale(1.1) translateY(-2px);
+            box-shadow: 0 8px 24px rgba(6,182,212,0.2);
+        }
+        .skill-badge:hover::after { opacity: 1; }
+        .skill-badge:hover .badge-label { color: var(--cyan); }
 
-            0%,
-            100% {
-                box-shadow: 0 0 20px rgba(6, 182, 212, 0.4), 0 0 40px rgba(6, 182, 212, 0.2);
-            }
-
-            50% {
-                box-shadow: 0 0 30px rgba(6, 182, 212, 0.6), 0 0 60px rgba(6, 182, 212, 0.3);
-            }
+        .badge-icon { font-size: 1.6rem; margin-bottom: 6px; line-height: 1; }
+        .badge-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: #94a3b8;
+            text-align: center;
+            transition: color 0.25s;
+            white-space: nowrap;
         }
 
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
+        /* ── TIMELINE CONNECTOR ── */
+        .timeline-dot {
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            background: var(--cyan);
+            box-shadow: 0 0 12px var(--cyan-glow);
+            flex-shrink: 0;
+            position: relative;
+        }
+        .timeline-dot::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 1px solid rgba(6,182,212,0.3);
+            animation: pulse-ring 2s ease-out infinite;
+        }
+        @keyframes pulse-ring {
+            0%{ transform: scale(1); opacity: 1; }
+            100%{ transform: scale(2.2); opacity: 0; }
         }
 
-        .animate-glowPulse {
-            animation: glowPulse 4s ease-in-out infinite;
+        /* ── TAG chips ── */
+        .tag-chip {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            background: rgba(6,182,212,0.08);
+            color: #67e8f9;
+            border: 1px solid rgba(6,182,212,0.25);
+            padding: 3px 10px;
+            border-radius: 999px;
+            display: inline-block;
+            transition: all 0.2s;
+            cursor: default;
         }
+        .tag-chip:hover {
+            background: rgba(6,182,212,0.2);
+            border-color: var(--cyan);
+            transform: scale(1.05);
+        }
+
+        /* ── GLITCH heading effect ── */
+        @keyframes glitch-shift {
+            0%,100% { clip-path: inset(0 0 100% 0); transform: translateX(0); }
+            20% { clip-path: inset(20% 0 60% 0); transform: translateX(-3px); }
+            40% { clip-path: inset(50% 0 30% 0); transform: translateX(3px); }
+            60% { clip-path: inset(80% 0 5% 0); transform: translateX(-2px); }
+            80% { clip-path: inset(5% 0 80% 0); transform: translateX(2px); }
+        }
+
+        /* ── CODE LINE decoration ── */
+        .code-line {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: rgba(6,182,212,0.4);
+            letter-spacing: 0.05em;
+        }
+
+        /* ── AWARD glow ── */
+        .award-card {
+            background: linear-gradient(135deg, rgba(250,204,21,0.05), rgba(6,182,212,0.05));
+            border: 1px solid rgba(250,204,21,0.2);
+        }
+        .award-card:hover {
+            border-color: rgba(250,204,21,0.5);
+            box-shadow: 0 12px 40px rgba(250,204,21,0.08);
+        }
+
+        /* ── SCROLL TO TOP ── */
+        #scroll-top {
+            position: fixed;
+            bottom: 2rem; right: 2rem;
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: rgba(6,182,212,0.15);
+            border: 1px solid rgba(6,182,212,0.4);
+            color: var(--cyan);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s, transform 0.3s, background 0.2s;
+            z-index: 40;
+            font-size: 1.1rem;
+        }
+        #scroll-top.visible { opacity: 1; transform: translateY(0); }
+        #scroll-top:hover { background: rgba(6,182,212,0.3); }
+
+        /* ── CONTACT email hover ── */
+        .email-link {
+            position: relative;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--cyan);
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+        .email-link::before {
+            content: attr(data-text);
+            position: absolute;
+            inset: 0;
+            color: #fff;
+            overflow: hidden;
+            width: 0;
+            transition: width 0.4s ease;
+            white-space: nowrap;
+        }
+        .email-link:hover::before { width: 100%; }
+
+        /* ── MOBILE MENU ── */
+        #mobileMenu {
+            background: rgba(6,10,16,0.97);
+            border-top: 1px solid var(--border);
+        }
+
+        /* ── SECTION BACKGROUNDS ── */
+        .section-alt { background: rgba(255,255,255,0.015); }
+
+        /* ── BUTTON ── */
+        .btn-primary {
+            background: transparent;
+            border: 1px solid var(--cyan);
+            color: var(--cyan);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
+            padding: 10px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--cyan);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s cubic-bezier(.16,1,.3,1);
+        }
+        .btn-primary:hover { color: #000; }
+        .btn-primary:hover::before { transform: scaleX(1); }
+        .btn-primary span { position: relative; z-index: 1; }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: #94a3b8;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
+            padding: 10px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-secondary:hover {
+            border-color: rgba(255,255,255,0.3);
+            color: #fff;
+            background: rgba(255,255,255,0.08);
+        }
+
+        /* ── SECTION HEADER line ── */
+        .section-header-wrap {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 3rem;
+            justify-content: center;
+        }
+        .section-header-line {
+            flex: 1;
+            max-width: 120px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(6,182,212,0.4));
+        }
+        .section-header-line.right {
+            background: linear-gradient(90deg, rgba(6,182,212,0.4), transparent);
+        }
+
+        /* ── NAV ── */
+        nav a {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* ── Scrollbar ── */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: rgba(6,182,212,0.4); border-radius: 2px; }
     </style>
 </head>
 
-<body class="bg-gray-900 text-gray-100 font-sans antialiased">
-    <!-- HEADER & NAVIGATION -->
-    <header
-        class="fixed top-0 left-0 right-0 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800 z-50 shadow-lg shadow-cyan-900/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div
-                    class="text-xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors duration-300 cursor-pointer">
-                    thuandtr</div>
+<body>
+<!-- Progress bar -->
+<div id="progress-bar"></div>
 
-                <button id="hamburgerBtn"
-                    class="lg:hidden flex flex-col gap-1.5 p-2 hover:bg-gray-800 rounded-lg transition-all duration-300"
-                    aria-label="Toggle navigation menu">
-                    <span class="w-6 h-0.5 bg-gray-100 transition-all duration-300"></span>
-                    <span class="w-6 h-0.5 bg-gray-100 transition-all duration-300"></span>
-                    <span class="w-6 h-0.5 bg-gray-100 transition-all duration-300"></span>
-                </button>
+<!-- Cursor glow -->
+<div id="cursor-glow"></div>
 
-                <nav id="navMenu" class="hidden lg:flex gap-4 xl:gap-6">
-                    <a href="#home"
-                        class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 relative group text-sm lg:text-base">Home<span
-                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
-                    <a href="#about"
-                        class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 relative group text-sm lg:text-base">About<span
-                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
-                    <a href="#work-experience"
-                        class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 relative group text-sm lg:text-base">Experience<span
-                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
-                    <a href="#skills"
-                        class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 relative group text-sm lg:text-base">Skills<span
-                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
-                    <a href="#projects"
-                        class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 relative group text-sm lg:text-base">Projects<span
-                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
-                    <a href="#education"
-                        class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 relative group text-sm lg:text-base">Education<span
-                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
-                    <a href="#courses"
-                        class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 relative group text-sm lg:text-base">Courses<span
-                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
-                    <a href="#awards"
-                        class="text-gray-300 hover:text-cyan-400 transition-colors duration-300 relative group text-sm lg:text-base">Awards<span
-                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
-                </nav>
-            </div>
+<!-- Particle canvas -->
+<canvas id="particle-canvas"></canvas>
 
-            <!-- Mobile & Tablet Menu -->
-            <nav id="mobileMenu" class="hidden lg:hidden pb-4 animate-fadeIn">
-                <div class="flex flex-col gap-2">
-                    <a href="#home"
-                        class="text-gray-300 hover:text-cyan-400 transition-all duration-300 px-4 py-2 hover:translate-x-2 rounded hover:bg-gray-800/50">Home</a>
-                    <a href="#about"
-                        class="text-gray-300 hover:text-cyan-400 transition-all duration-300 px-4 py-2 hover:translate-x-2 rounded hover:bg-gray-800/50">About</a>
-                    <a href="#work-experience"
-                        class="text-gray-300 hover:text-cyan-400 transition-all duration-300 px-4 py-2 hover:translate-x-2 rounded hover:bg-gray-800/50">Work
-                        Experience</a>
-                    <a href="#skills"
-                        class="text-gray-300 hover:text-cyan-400 transition-all duration-300 px-4 py-2 hover:translate-x-2 rounded hover:bg-gray-800/50">Skills</a>
-                    <a href="#projects"
-                        class="text-gray-300 hover:text-cyan-400 transition-all duration-300 px-4 py-2 hover:translate-x-2 rounded hover:bg-gray-800/50">Projects</a>
-                    <a href="#education"
-                        class="text-gray-300 hover:text-cyan-400 transition-all duration-300 px-4 py-2 hover:translate-x-2 rounded hover:bg-gray-800/50">Education</a>
-                    <a href="#courses"
-                        class="text-gray-300 hover:text-cyan-400 transition-all duration-300 px-4 py-2 hover:translate-x-2 rounded hover:bg-gray-800/50">Courses</a>
-                    <a href="#awards"
-                        class="text-gray-300 hover:text-cyan-400 transition-all duration-300 px-4 py-2 hover:translate-x-2 rounded hover:bg-gray-800/50">Awards</a>
-                    <a href="#organizations"
-                        class="text-gray-300 hover:text-cyan-400 transition-all duration-300 px-4 py-2 hover:translate-x-2 rounded hover:bg-gray-800/50">Organizations</a>
-                </div>
+<!-- Scroll to top -->
+<button id="scroll-top" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- ── HEADER ── -->
+<header>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <a href="#home" class="font-bold text-cyan-400 hover:text-cyan-300 transition-colors mono text-sm tracking-widest">
+                &lt;thuandtr /&gt;
+            </a>
+
+            <button id="hamburgerBtn" class="lg:hidden flex flex-col gap-[5px] p-2 hover:bg-white/5 rounded-lg transition-all duration-300" aria-label="Toggle navigation menu">
+                <span class="w-5 h-[1.5px] bg-gray-300"></span>
+                <span class="w-5 h-[1.5px] bg-gray-300"></span>
+                <span class="w-5 h-[1.5px] bg-gray-300"></span>
+            </button>
+
+            <nav id="navMenu" class="hidden lg:flex gap-6 items-center">
+                <a href="#home"            class="text-gray-400 hover:text-cyan-400 transition-colors duration-300 relative group">home<span class="absolute -bottom-0.5 left-0 w-0 h-px bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
+                <a href="#about"           class="text-gray-400 hover:text-cyan-400 transition-colors duration-300 relative group">about<span class="absolute -bottom-0.5 left-0 w-0 h-px bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
+                <a href="#work-experience" class="text-gray-400 hover:text-cyan-400 transition-colors duration-300 relative group">experience<span class="absolute -bottom-0.5 left-0 w-0 h-px bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
+                <a href="#skills"          class="text-gray-400 hover:text-cyan-400 transition-colors duration-300 relative group">skills<span class="absolute -bottom-0.5 left-0 w-0 h-px bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
+                <a href="#projects"        class="text-gray-400 hover:text-cyan-400 transition-colors duration-300 relative group">projects<span class="absolute -bottom-0.5 left-0 w-0 h-px bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
+                <a href="#education"       class="text-gray-400 hover:text-cyan-400 transition-colors duration-300 relative group">education<span class="absolute -bottom-0.5 left-0 w-0 h-px bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
+                <a href="#courses"         class="text-gray-400 hover:text-cyan-400 transition-colors duration-300 relative group">courses<span class="absolute -bottom-0.5 left-0 w-0 h-px bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
+                <a href="#awards"          class="text-gray-400 hover:text-cyan-400 transition-colors duration-300 relative group">awards<span class="absolute -bottom-0.5 left-0 w-0 h-px bg-cyan-400 group-hover:w-full transition-all duration-300"></span></a>
             </nav>
         </div>
-    </header>
 
-    <main class="pt-16">
-        <!-- HERO SECTION -->
-        <section id="home"
-            class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 animate-fadeIn">
-            <div class="max-w-6xl w-full">
-                <div class="flex flex-col md:flex-col items-center gap-12">
-                    <div class="relative w-48 h-48 md:w-64 md:h-64 flex-shrink-0 animate-float animate-glowPulse rounded-[100%]
-">
-                        <!-- Outer border glow -->
-                        <div
-                            class="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-400 p-1 opacity-100">
-                        </div>
-                        <!-- Inner container -->
-                        <div
-                            class="absolute inset-1 rounded-full bg-gray-900 overflow-hidden shadow-2xl shadow-cyan-400/40 hover:shadow-cyan-400/60 transition-all duration-300">
-                            <!-- Avatar image -->
-                            <img src="1772763978465.jpg" class="w-full h-full object-cover" />
-                            <!-- Overlay for professional effect -->
-                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/30 to-transparent"></div>
+        <!-- Mobile Menu -->
+        <nav id="mobileMenu" class="hidden lg:hidden pb-4">
+            <div class="flex flex-col gap-1 pt-2">
+                <a href="#home"            class="text-gray-400 hover:text-cyan-400 transition-all duration-300 px-4 py-2.5 hover:translate-x-2 rounded-lg hover:bg-white/5">home</a>
+                <a href="#about"           class="text-gray-400 hover:text-cyan-400 transition-all duration-300 px-4 py-2.5 hover:translate-x-2 rounded-lg hover:bg-white/5">about</a>
+                <a href="#work-experience" class="text-gray-400 hover:text-cyan-400 transition-all duration-300 px-4 py-2.5 hover:translate-x-2 rounded-lg hover:bg-white/5">experience</a>
+                <a href="#skills"          class="text-gray-400 hover:text-cyan-400 transition-all duration-300 px-4 py-2.5 hover:translate-x-2 rounded-lg hover:bg-white/5">skills</a>
+                <a href="#projects"        class="text-gray-400 hover:text-cyan-400 transition-all duration-300 px-4 py-2.5 hover:translate-x-2 rounded-lg hover:bg-white/5">projects</a>
+                <a href="#education"       class="text-gray-400 hover:text-cyan-400 transition-all duration-300 px-4 py-2.5 hover:translate-x-2 rounded-lg hover:bg-white/5">education</a>
+                <a href="#courses"         class="text-gray-400 hover:text-cyan-400 transition-all duration-300 px-4 py-2.5 hover:translate-x-2 rounded-lg hover:bg-white/5">courses</a>
+                <a href="#awards"          class="text-gray-400 hover:text-cyan-400 transition-all duration-300 px-4 py-2.5 hover:translate-x-2 rounded-lg hover:bg-white/5">awards</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main class="pt-16 relative z-10">
+
+    <!-- ── HERO ── -->
+    <section id="home" class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-24">
+        <div class="max-w-5xl w-full">
+            <div class="flex flex-col items-center gap-10 text-center">
+
+                <!-- Avatar -->
+                <div class="relative avatar-float" style="animation-delay:0s">
+                    <!-- Spinning dashed ring -->
+                    <svg class="avatar-ring absolute -inset-4 w-[calc(100%+32px)] h-[calc(100%+32px)]" viewBox="0 0 240 240">
+                        <circle cx="120" cy="120" r="115" fill="none" stroke="rgba(6,182,212,0.3)" stroke-width="1" stroke-dasharray="6 10"/>
+                    </svg>
+                    <div class="w-44 h-44 md:w-56 md:h-56 rounded-full p-[2px] glow-pulse" style="background: conic-gradient(from 0deg, #06B6D4, #818cf8, #06B6D4);">
+                        <div class="w-full h-full rounded-full overflow-hidden bg-gray-900">
+                            <img src="1772763978465.jpg" class="w-full h-full object-cover" alt="Thuan, Doan Tran"/>
                         </div>
                     </div>
+                    <!-- Status dot -->
+                    <span class="absolute bottom-3 right-3 w-4 h-4 bg-green-400 rounded-full border-2 border-gray-900 shadow-[0_0_8px_rgba(74,222,128,0.8)]"></span>
+                </div>
 
-                    <div class="flex-1 text-center">
-                        <h1 class="text-base md:text-base mb-2 animate-slideInRight">
-                            <span class="text-cyan-400 font-semibold">Ho Chi Minh City, </span>
-                            <span class="text-gray-300">Vietnam</span>
-                        </h1>
-                        <h2 class="text-4xl md:text-6xl font-bold mb-6 animate-slideInRight"
-                            style="animation-delay: 0.1s">
-                            Thuan, <span class="text-cyan-400">Doan</span> Tran
-                        </h2>
-                        <p class="text-gray-300 text-lg leading-relaxed mb-8 mx-auto animate-slideInRight"
-                            style="animation-delay: 0.2s">
-                            3+ years of expertise in Full-stack Development and IT Operations. Specialized in building
-                            scalable applications, optimizing system performance, and leading technical transformations
-                            across financial and technology sectors.
-                        </p>
-                        <a href="https://raw.githubusercontent.com/thuandtr/portfolio/main/DoanTranThuan_CV_2026.pdf"
-                            download target="_blank"
-                            class="inline-block bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1">
-                            Download my CV
+                <!-- Text -->
+                <div class="reveal">
+                    <p class="hero-tag mb-4">// Ho Chi Minh City, Vietnam</p>
+                    <h1 class="text-5xl md:text-7xl font-extrabold mb-4 leading-none tracking-tight" style="font-family:'Syne',sans-serif;">
+                        Thuan,&nbsp;<span class="text-cyan-400 relative">Doan
+                            <svg class="absolute -bottom-1 left-0 w-full" height="4" viewBox="0 0 100 4" preserveAspectRatio="none">
+                                <path d="M0,3 Q25,0 50,3 Q75,6 100,3" stroke="#06B6D4" stroke-width="1.5" fill="none" opacity="0.6"/>
+                            </svg>
+                        </span> Tran
+                    </h1>
+                    <p id="typed-role" class="mono text-cyan-400 text-base md:text-lg mb-6 typing-cursor"></p>
+                    <p class="text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10">
+                        3+ years of expertise in Full-stack Development and IT Operations. Specialized in building scalable applications, optimizing system performance, and leading technical transformations across financial and technology sectors.
+                    </p>
+                    <div class="flex flex-wrap gap-3 justify-center">
+                        <a href="https://raw.githubusercontent.com/thuandtr/portfolio/main/DoanTranThuan_CV_2026.pdf" download target="_blank" class="btn-primary">
+                            <span>↓ Download CV</span>
                         </a>
+                        <a href="#about" class="btn-secondary">Explore →</a>
                     </div>
                 </div>
+
+                <!-- Scroll hint -->
+                <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
+                    <span class="code-line">scroll_down()</span>
+                    <div class="w-px h-12 bg-gradient-to-b from-cyan-400 to-transparent animate-pulse"></div>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ABOUT SECTION -->
-        <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800/50">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-4xl font-bold mb-6 text-center animate-fadeIn">I'm an Information Technology Engineer.
-                </h2>
-                <p class="text-xl text-cyan-400 mb-6 text-center animate-fadeIn hover:text-cyan-300 transition-colors duration-300"
-                    style="animation-delay: 0.1s">
-                    Currently I'm an Application Operations Specialist at <span class="font-semibold"><br>Saigon
-                        Commercial Joint
-                        Stock Bank (Sacombank)</span>.
-                </p>
-                <p class="text-gray-300 leading-relaxed text-justify animate-fadeIn hover:text-gray-200 transition-colors duration-300 mb-8"
-                    style="animation-delay: 0.2s">
-                    Graduated with a Computer Science degree from the International University - Vietnam National
-                    University Ho Chi
-                    Minh City (Class of 2025) with a solid foundation in Software Development and IT Operations.
-                    Professional
-                    experience includes significant internships at leading technology companies: PHP Programmer at DotB
-                    (2023),
-                    gaining practical experience in web development, and IT Operations Intern at Bosch Global Software
-                    Technologies
-                    Vietnam (2025). Currently working as an Application Operations Specialist at the Application
-                    Operations Center
-                    under the IT Department of Saigon Commercial Joint Stock Bank (Sacombank, Head Office), developing
-                    capabilities
-                    in IT Operations Management and Software Development. Passionate about applying technology to drive
-                    innovative
-                    solutions and committed to continuous learning in a collaborative, dynamic environment.
-                </p>
+    <!-- ── ABOUT ── -->
+    <section id="about" class="py-24 px-4 sm:px-6 lg:px-8 section-alt">
+        <div class="max-w-4xl mx-auto">
+            <div class="section-header-wrap reveal">
+                <div class="section-header-line"></div>
+                <h2 class="text-3xl md:text-4xl font-bold section-title">About</h2>
+                <div class="section-header-line right"></div>
+            </div>
 
-                <div class="flex justify-center gap-4 flex-wrap animate-fadeIn" style="animation-delay: 0.3s">
-                    <a href="https://www.linkedin.com/in/thuandtr/" target="_blank" rel="noopener noreferrer"
-                        class="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-700/50 shadow-md">
-                        💼 Connect with me
+            <div class="card p-8 reveal">
+                <p class="code-line mb-4">/* currently working at */</p>
+                <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Information Technology Engineer</h3>
+                <p class="text-cyan-400 mono text-sm mb-6">
+                    Application Operations Specialist <span class="text-gray-500">@</span> Saigon Commercial Joint Stock Bank
+                </p>
+                <p class="text-gray-400 leading-relaxed text-[0.95rem] mb-8">
+                    Graduated with a Computer Science degree from the International University - Vietnam National University Ho Chi Minh City (Class of 2025) with a solid foundation in Software Development and IT Operations. Professional experience includes significant internships at leading technology companies: PHP Programmer at DotB (2023), gaining practical experience in web development, and IT Operations Intern at Bosch Global Software Technologies Vietnam (2025). Currently working as an Application Operations Specialist at the Application Operations Center under the IT Department of Saigon Commercial Joint Stock Bank (Sacombank, Head Office), developing capabilities in IT Operations Management and Software Development. Passionate about applying technology to drive innovative solutions and committed to continuous learning in a collaborative, dynamic environment.
+                </p>
+                <div class="flex flex-wrap gap-3">
+                    <a href="https://www.linkedin.com/in/thuandtr/" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                        <span>💼 LinkedIn</span>
                     </a>
-                    <a href="https://github.com/thuandtr" target="_blank" rel="noopener noreferrer"
-                        class="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-900 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-gray-900/50 shadow-md">
-                        🐙 View my GitHub
+                    <a href="https://github.com/thuandtr" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                        🐙 GitHub
                     </a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- SKILLS SECTION -->
-        <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-6xl mx-auto">
-                <h2 class="text-4xl font-bold mb-6 text-center animate-fadeIn">Top Skills</h2>
-                <p class="text-gray-300 text-center mb-12 max-w-3xl mx-auto animate-fadeIn"
-                    style="animation-delay: 0.1s">
-                    I specialize in Full-stack Software Development with expertise in modern Web Technologies,
-                    IT Operations, Cloud-based Solutions, and Enterprise-specific Application Technologies.
-                </p>
+    <!-- ── SKILLS ── -->
+    <section id="skills" class="py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="section-header-wrap reveal">
+                <div class="section-header-line"></div>
+                <h2 class="text-3xl md:text-4xl font-bold section-title">Top Skills</h2>
+                <div class="section-header-line right"></div>
+            </div>
+            <p class="text-gray-500 text-center mb-12 max-w-2xl mx-auto reveal text-sm">
+                Full-stack Software Development · IT Operations · Cloud Solutions · Enterprise Banking Tech
+            </p>
 
-                <div class="space-y-8">
-                    <!-- Frontend & Backend Development -->
-                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-1 animate-fadeIn"
-                        style="animation-delay: 0.2s">
-                        <h3 class="text-xl font-semibold text-cyan-400 mb-4">Frontend & Backend Development</h3>
-                        <div class="flex flex-wrap gap-4">
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">📱</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">JavaScript</span>
-                            </div>
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🟢</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Node.js</span>
-                            </div>
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">⚛️</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">React.js</span>
-                            </div>
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">▲</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Next.js</span>
-                            </div>
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">⚡</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Express.js</span>
-                            </div>
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🐘</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">PHP</span>
-                            </div>
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🐍</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Python</span>
-                            </div>
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">⚙️</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">JBasic</span>
-                            </div>
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🎨</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">HTML/CSS</span>
-                            </div>
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🔷</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">C/C++</span>
-                            </div>
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">☕</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Java</span>
-                            </div>
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🐹</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Golang</span>
-                            </div>
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🎯</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Kotlin</span>
-                            </div>
+            <div class="space-y-5">
+                <!-- Frontend & Backend -->
+                <div class="card p-6 reveal">
+                    <h3 class="mono text-xs text-cyan-400 mb-5 tracking-widest uppercase">// Frontend &amp; Backend Development</h3>
+                    <div class="flex flex-wrap gap-3 stagger justify-center">
+                        <div class="skill-badge reveal"><span class="badge-icon">📱</span><span class="badge-label">JavaScript</span></div>
+                        <div class="skill-badge reveal"><span class="badge-icon">🟢</span><span class="badge-label">Node.js</span></div>
+                        <div class="skill-badge reveal"><span class="badge-icon">⚛️</span><span class="badge-label">React.js</span></div>
+                        <div class="skill-badge reveal"><span class="badge-icon">▲</span><span class="badge-label">Next.js</span></div>
+                        <div class="skill-badge reveal"><span class="badge-icon">⚡</span><span class="badge-label">Express.js</span></div>
+                        <div class="skill-badge reveal"><span class="badge-icon">🐘</span><span class="badge-label">PHP</span></div>
+                        <div class="skill-badge reveal"><span class="badge-icon">🐍</span><span class="badge-label">Python</span></div>
+                        <div class="skill-badge reveal"><span class="badge-icon">⚙️</span><span class="badge-label">JBasic</span></div>
+                        <div class="skill-badge reveal"><span class="badge-icon">🎨</span><span class="badge-label">HTML/CSS</span></div>
+                        <div class="skill-badge reveal"><span class="badge-icon">🔷</span><span class="badge-label">C/C++</span></div>
+                        <div class="skill-badge reveal"><span class="badge-icon">☕</span><span class="badge-label">Java</span></div>
+                        <div class="skill-badge reveal"><span class="badge-icon">🐹</span><span class="badge-label">Golang</span></div>
+                        <div class="skill-badge reveal"><span class="badge-icon">🎯</span><span class="badge-label">Kotlin</span></div>
+                    </div>
+                </div>
+
+                <!-- Database -->
+                <div class="card p-6 reveal">
+                    <h3 class="mono text-xs text-cyan-400 mb-5 tracking-widest uppercase">// Database &amp; Data Management</h3>
+                    <div class="flex flex-wrap gap-3 justify-center">
+                        <div class="skill-badge"><span class="badge-icon">🗄️</span><span class="badge-label">SQL</span></div>
+                        <div class="skill-badge"><span class="badge-icon">🔴</span><span class="badge-label">Oracle</span></div>
+                        <div class="skill-badge"><span class="badge-icon">🍃</span><span class="badge-label">MongoDB</span></div>
+                        <div class="skill-badge"><span class="badge-icon">🐬</span><span class="badge-label">MySQL</span></div>
+                        <div class="skill-badge"><span class="badge-icon">📊</span><span class="badge-label">Redis</span></div>
+                        <div class="skill-badge"><span class="badge-icon">🔍</span><span class="badge-label">Elasticsearch</span></div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    <!-- IT Ops -->
+                    <div class="card p-6 reveal">
+                        <h3 class="mono text-xs text-cyan-400 mb-4 tracking-widest uppercase">// IT Operations</h3>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <div class="skill-badge"><span class="badge-icon">🔧</span><span class="badge-label">ServiceNow</span></div>
+                            <div class="skill-badge"><span class="badge-icon">🔐</span><span class="badge-label">Active Dir</span></div>
+                            <div class="skill-badge"><span class="badge-icon">🏦</span><span class="badge-label">Temenos T24</span></div>
+                            <div class="skill-badge"><span class="badge-icon">🐧</span><span class="badge-label">Linux</span></div>
                         </div>
                     </div>
-
-                    <!-- Database & Data Management -->
-                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-1 animate-fadeIn"
-                        style="animation-delay: 0.3s">
-                        <h3 class="text-xl font-semibold text-cyan-400 mb-4">Database & Data Management</h3>
-                        <div class="flex flex-wrap gap-4">
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🗄️</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">SQL</span>
-                            </div>
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🔴</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Oracle</span>
-                            </div>
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🍃</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">MongoDB</span>
-                            </div>
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🐬</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">MySQL</span>
-                            </div>
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">📊</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Redis</span>
-                            </div>
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🔍</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Elasticsearch</span>
-                            </div>
+                    <!-- DevOps -->
+                    <div class="card p-6 reveal">
+                        <h3 class="mono text-xs text-cyan-400 mb-4 tracking-widest uppercase">// DevOps &amp; Cloud</h3>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <div class="skill-badge"><span class="badge-icon">🐳</span><span class="badge-label">Docker</span></div>
+                            <div class="skill-badge"><span class="badge-icon">📈</span><span class="badge-label">Kibana</span></div>
+                            <div class="skill-badge"><span class="badge-icon">📂</span><span class="badge-label">Git</span></div>
                         </div>
                     </div>
-
-                    <!-- IT Operations & ITSM -->
-                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-1 animate-fadeIn"
-                        style="animation-delay: 0.4s">
-                        <h3 class="text-xl font-semibold text-cyan-400 mb-4">IT Operations & ITSM</h3>
-                        <div class="flex flex-wrap gap-4">
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🔧</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">ServiceNow</span>
-                            </div>
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🔐</span>
-                                <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Active
-                                    Dir</span>
-                            </div>
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🏦</span>
-                                <span class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Temenos
-                                    T24</span>
-                            </div>
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🐧</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Linux</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- DevOps & Cloud -->
-                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-1 animate-fadeIn"
-                        style="animation-delay: 0.5s">
-                        <h3 class="text-xl font-semibold text-cyan-400 mb-4">DevOps & Cloud Technologies</h3>
-                        <div class="flex flex-wrap gap-4">
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🐳</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Docker</span>
-                            </div>
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">📈</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Kibana</span>
-                            </div>
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">📂</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">Git</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- CMS & Web Platforms -->
-                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-1 animate-fadeIn"
-                        style="animation-delay: 0.6s">
-                        <h3 class="text-xl font-semibold text-cyan-400 mb-4">CMS & Web Platforms</h3>
-                        <div class="flex flex-wrap gap-4">
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">📝</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">WordPress</span>
-                            </div>
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">💼</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">SugarCRM</span>
-                            </div>
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">📧</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">MailChimp</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- AI & Advanced Tools -->
-                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-1 animate-fadeIn"
-                        style="animation-delay: 0.7s">
-                        <h3 class="text-xl font-semibold text-cyan-400 mb-4">AI & Advanced Tools</h3>
-                        <div class="flex flex-wrap gap-4">
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🔗</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">LangChain</span>
-                            </div>
-                            <div
-                                class="flex flex-col items-center justify-center bg-gray-700 rounded-lg p-4 min-w-[80px] hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-cyan-400/30 border border-gray-700 cursor-pointer group">
-                                <span class="text-3xl mb-2 group-hover:animate-jumpOnce">🤖</span>
-                                <span
-                                    class="text-xs text-gray-300 group-hover:text-cyan-400 transition-colors">GPT/LLMs</span>
-                            </div>
+                    <!-- AI -->
+                    <div class="card p-6 reveal">
+                        <h3 class="mono text-xs text-cyan-400 mb-4 tracking-widest uppercase">// AI &amp; Advanced</h3>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <div class="skill-badge"><span class="badge-icon">🔗</span><span class="badge-label">LangChain</span></div>
+                            <div class="skill-badge"><span class="badge-icon">🤖</span><span class="badge-label">GPT/LLMs</span></div>
+                            <div class="skill-badge"><span class="badge-icon">📝</span><span class="badge-label">WordPress</span></div>
+                            <div class="skill-badge"><span class="badge-icon">💼</span><span class="badge-label">SugarCRM</span></div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- WORK EXPERIENCE SECTION -->
-        <section id="work-experience" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800/50">
-            <div class="max-w-6xl mx-auto">
-                <h2 class="text-4xl font-bold mb-12 text-center animate-fadeIn">Work Experience</h2>
-                <div class="space-y-8">
-                    <!-- Card 1 -->
-                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-2 animate-fadeIn group"
-                        style="animation-delay: 0.1s">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div
-                                class="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                                <span class="text-3xl group-hover:animate-jumpOnce">🏦</span>
-                            </div>
-                            <div class="flex-1">
-                                <h3
-                                    class="text-2xl font-bold text-cyan-400 mb-2 group-hover:text-cyan-300 transition-colors">
-                                    Application Operations Specialist</h3>
-                                <a href="https://www.sacombank.com.vn/ca-nhan.html" class="text-gray-300 mb-1">Saigon
-                                    Thuong Tin Commercial Joint Stock Bank (Sacombank) • Ho Chi Minh City, Vietnam</a>
-                                <p class="text-gray-400 text-sm mb-4">Dec 2025 – Present</p>
-                                <div class="space-y-2">
-                                    <div class="flex items-start gap-2">
-                                        <span class="text-cyan-400 mt-1">•</span>
-                                        <p class="text-gray-300 group-hover:text-gray-100 transition-colors">Engineered
-                                            T24 solutions encompassing version design, routine development, and screen
-                                            customization to
-                                            streamline core banking workflows including account management and
-                                            transaction processing functions</p>
-                                    </div>
-                                    <div class="flex items-start gap-2">
-                                        <span class="text-cyan-400 mt-1">•</span>
-                                        <p class="text-gray-300 group-hover:text-gray-100 transition-colors">Developed
-                                            scalable batch and real-time services utilizing multi-threading techniques
-                                            to process large-scale
-                                            transaction data efficiently, ensuring system stability under high-volume
-                                            operations</p>
-                                    </div>
-                                    <div class="flex items-start gap-2">
-                                        <span class="text-cyan-400 mt-1">•</span>
-                                        <p class="text-gray-300 group-hover:text-gray-100 transition-colors">Applied
-                                            extensive expertise in international payment business processes, SWIFT
-                                            protocols, and payment
-                                            documentation systems to support the bank's global payment infrastructure
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-2 animate-fadeIn group"
-                        style="animation-delay: 0.15s">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div
-                                class="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                                <span class="text-3xl group-hover:animate-jumpOnce">💻</span>
-                            </div>
-                            <div class="flex-1">
-                                <h3
-                                    class="text-2xl font-bold text-cyan-400 mb-2 group-hover:text-cyan-300 transition-colors">
-                                    Web Application Developer</h3>
-                                <a href="https://aqtech.edu.vn/" class="text-gray-300 mb-1">Anh Quan Technology Co.,
-                                    Ltd. (AQTech) • Ho Chi Minh City, Vietnam</a>
-                                <p class="text-gray-400 text-sm mb-4">Apr 2025 – Present</p>
-                                <div class="space-y-2">
-                                    <div class="flex items-start gap-2">
-                                        <span class="text-cyan-400 mt-1">•</span>
-                                        <p class="text-gray-300 group-hover:text-gray-100 transition-colors">Boosted
-                                            conversion rates by designing & implementing responsive landing pages with
-                                            advanced UX principles</p>
-                                    </div>
-                                    <div class="flex items-start gap-2">
-                                        <span class="text-cyan-400 mt-1">•</span>
-                                        <p class="text-gray-300 group-hover:text-gray-100 transition-colors">Reduced
-                                            page load times by 40% through custom WordPress theme optimization &
-                                            performance enhancement techniques. Delivered custom WordPress plugins that
-                                            automated business processes, saving hours weekly</p>
-                                    </div>
-                                    <div class="flex items-start gap-2">
-                                        <span class="text-cyan-400 mt-1">•</span>
-                                        <p class="text-gray-300 group-hover:text-gray-100 transition-colors">Led
-                                            technical documentation efforts for the development team, improving project
-                                            handover efficiency</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-2 animate-fadeIn group"
-                        style="animation-delay: 0.2s">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div
-                                class="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                                <span class="text-3xl group-hover:animate-jumpOnce">⚙️</span>
-                            </div>
-                            <div class="flex-1">
-                                <h3
-                                    class="text-2xl font-bold text-cyan-400 mb-2 group-hover:text-cyan-300 transition-colors">
-                                    IT Operations Engineer – Intern</h3>
-                                <a href="https://www.bosch.com.vn/" class="text-gray-300 mb-1">Bosch Global Software
-                                    Technologies Vietnam • Ho Chi Minh City, Vietnam</a>
-                                <p class="text-gray-400 text-sm mb-4">Apr 2025 – Sep 2025</p>
-                                <div class="space-y-2">
-                                    <div class="flex items-start gap-2">
-                                        <span class="text-cyan-400 mt-1">•</span>
-                                        <p class="text-gray-300 group-hover:text-gray-100 transition-colors">Supported
-                                            End-Users via SMT Ticket following ITIL Process with defined SLA & KPI
-                                            requirements (L2 Level)</p>
-                                    </div>
-                                    <div class="flex items-start gap-2">
-                                        <span class="text-cyan-400 mt-1">•</span>
-                                        <p class="text-gray-300 group-hover:text-gray-100 transition-colors">Contributed
-                                            to problem investigation & change management processes. Worked with Oracle
-                                            PL/SQL for database management & optimization. Provided support for new
-                                            feature releases & hot-fixes implementation</p>
-                                    </div>
-                                    <div class="flex items-start gap-2">
-                                        <span class="text-cyan-400 mt-1">•</span>
-                                        <p class="text-gray-300 group-hover:text-gray-100 transition-colors">Maintained
-                                            & managed application servers to ensure optimal performance. Executed
-                                            additional tasks & activities related to IT support as assigned by line
-                                            manager</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 4 -->
-                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-2 animate-fadeIn group"
-                        style="animation-delay: 0.25s">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div
-                                class="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                                <span class="text-3xl group-hover:animate-jumpOnce">🌐</span>
-                            </div>
-                            <div class="flex-1">
-                                <h3
-                                    class="text-2xl font-bold text-cyan-400 mb-2 group-hover:text-cyan-300 transition-colors">
-                                    Web Application Developer</h3>
-                                <a href="https://www.facebook.com/profile.php/?id=100094716201168"
-                                    class="text-gray-300 mb-1">TheDigitalLab • Ho Chi Minh City, Vietnam</a>
-                                <p class="text-gray-400 text-sm mb-4">Aug 2023 – Dec 2024</p>
-                                <div class="space-y-2">
-                                    <div class="flex items-start gap-2">
-                                        <span class="text-cyan-400 mt-1">•</span>
-                                        <p class="text-gray-300 group-hover:text-gray-100 transition-colors">Increased
-                                            lead generation through development of high-converting landing pages &
-                                            custom form integrations</p>
-                                    </div>
-                                    <div class="flex items-start gap-2">
-                                        <span class="text-cyan-400 mt-1">•</span>
-                                        <p class="text-gray-300 group-hover:text-gray-100 transition-colors">Automated
-                                            marketing workflows by integrating custom forms with MailChimp, processing
-                                            50+ leads monthly</p>
-                                    </div>
-                                    <div class="flex items-start gap-2">
-                                        <span class="text-cyan-400 mt-1">•</span>
-                                        <p class="text-gray-300 group-hover:text-gray-100 transition-colors">Enhanced
-                                            website functionality through strategic plugin research & implementation of
-                                            performance-optimized solutions</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 5 -->
-                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-2 animate-fadeIn group"
-                        style="animation-delay: 0.3s">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div
-                                class="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                                <span class="text-3xl group-hover:animate-jumpOnce">👨‍💻</span>
-                            </div>
-                            <div class="flex-1">
-                                <h3
-                                    class="text-2xl font-bold text-cyan-400 mb-2 group-hover:text-cyan-300 transition-colors">
-                                    Software Developer – Intern</h3>
-                                <a href="https://dotb.vn/" class="text-gray-300 mb-1">DotB Educational Technology Joint
-                                    Stock Company • Ho Chi Minh City, Vietnam</a>
-                                <p class="text-gray-400 text-sm mb-4">Apr 2023 – Apr 2024</p>
-                                <div class="space-y-2">
-                                    <div class="flex items-start gap-2">
-                                        <span class="text-cyan-400 mt-1">•</span>
-                                        <p class="text-gray-300 group-hover:text-gray-100 transition-colors">Optimized
-                                            system performance through code refactoring & database query optimization
-                                            across multiple client websites. Developed custom SugarCRM integration APIs
-                                            enabling seamless data flow between CRM & WordPress platforms</p>
-                                    </div>
-                                    <div class="flex items-start gap-2">
-                                        <span class="text-cyan-400 mt-1">•</span>
-                                        <p class="text-gray-300 group-hover:text-gray-100 transition-colors">Built
-                                            custom client websites from scratch, exceeding performance benchmarks &
-                                            client expectations. Reduced website maintenance costs through
-                                            implementation of automated update & backup systems</p>
-                                    </div>
-                                    <div class="flex items-start gap-2">
-                                        <span class="text-cyan-400 mt-1">•</span>
-                                        <p class="text-gray-300 group-hover:text-gray-100 transition-colors">
-                                            Collaborated with design & marketing teams to deliver cohesive digital
-                                            solutions for education sector clients</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- ── WORK EXPERIENCE ── -->
+    <section id="work-experience" class="py-24 px-4 sm:px-6 lg:px-8 section-alt">
+        <div class="max-w-4xl mx-auto">
+            <div class="section-header-wrap reveal">
+                <div class="section-header-line"></div>
+                <h2 class="text-3xl md:text-4xl font-bold section-title">Work Experience</h2>
+                <div class="section-header-line right"></div>
             </div>
-        </section>
 
-        <!-- PROJECTS SECTION -->
-        <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-6xl mx-auto">
-                <h2 class="text-4xl font-bold mb-12 text-center animate-fadeIn">Personal Projects</h2>
-                <div class="space-y-8">
-                    <!-- Project 1 -->
-                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-2 animate-fadeIn group"
-                        style="animation-delay: 0.1s">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div class="flex-1">
-                                <p
-                                    class="text-cyan-400 text-sm font-semibold mb-2 group-hover:text-cyan-300 transition-colors">
-                                    Personal Project</p>
-                                <h3 class="text-2xl font-bold mb-3 group-hover:text-cyan-300 transition-colors">
-                                    <a href="https://github.com/thuandtr/Social_Netword" target="_blank"
-                                        rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">Social
-                                        "Netword"</a>
-                                </h3>
-                                <p
-                                    class="text-gray-300 mb-4 leading-relaxed group-hover:text-gray-100 transition-colors">
-                                    This is a comprehensive full-stack authentication system built with modern web
-                                    technologies. It demonstrates
-                                    a production-ready authentication flow with secure token management, password
-                                    hashing & session handling
-                                    using HTTP-only cookies.
-                                </p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span
-                                        class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-sm border border-cyan-500/30 hover:bg-cyan-500/40 hover:border-cyan-400 transition-all duration-300 cursor-pointer transform hover:scale-105">NodeJS</span>
-                                    <span
-                                        class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-sm border border-cyan-500/30 hover:bg-cyan-500/40 hover:border-cyan-400 transition-all duration-300 cursor-pointer transform hover:scale-105">ExpressJS</span>
-                                    <span
-                                        class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-sm border border-cyan-500/30 hover:bg-cyan-500/40 hover:border-cyan-400 transition-all duration-300 cursor-pointer transform hover:scale-105">NextJS</span>
-                                    <span
-                                        class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-sm border border-cyan-500/30 hover:bg-cyan-500/40 hover:border-cyan-400 transition-all duration-300 cursor-pointer transform hover:scale-105">MySQL</span>
-                                    <span
-                                        class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-sm border border-cyan-500/30 hover:bg-cyan-500/40 hover:border-cyan-400 transition-all duration-300 cursor-pointer transform hover:scale-105">Redis</span>
-                                </div>
-                            </div>
-                            <div
-                                class="w-24 h-24 bg-gray-700 rounded-lg flex items-center justify-center text-5xl flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                                🌐
-                            </div>
-                        </div>
-                    </div>
+            <div class="relative">
+                <!-- vertical line -->
+                <div class="absolute left-5 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-400/40 via-cyan-400/20 to-transparent hidden md:block"></div>
 
-                    <!-- Project 2 -->
-                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-2 animate-fadeIn group"
-                        style="animation-delay: 0.2s">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div class="flex-1">
-                                <p
-                                    class="text-cyan-400 text-sm font-semibold mb-2 group-hover:text-cyan-300 transition-colors">
-                                    Personal Project</p>
-                                <h3 class="text-2xl font-bold mb-3 group-hover:text-cyan-300 transition-colors">
-                                    <a href="https://github.com/thuandtr/MERN_AI_CHATBOT" target="_blank"
-                                        rel="noopener noreferrer"
-                                        class="hover:text-cyan-400 transition-colors">RAG-based Application for Web
-                                        Frontend Development</a>
-                                </h3>
-                                <p
-                                    class="text-gray-300 mb-4 leading-relaxed group-hover:text-gray-100 transition-colors">
-                                    Codfe is a state-of-the-art chatbot application developed using the MERN stack
-                                    (MongoDB, Express, ReactJS,
-                                    NodeJS) & powered by cutting-edge Large Language Models (LLMs) such as OpenAI's GPT
-                                    models & Google's
-                                    Gemini. The system combines Docker to host Elasticsearch & Kibana, providing a
-                                    comprehensive AI-powered
-                                    virtual assistant for developers. This chatbot is designed to provide contextual &
-                                    accurate responses by leveraging
-                                    RAG techniques & dedicated documentation for Front-end Developers. The system
-                                    supports multiple LLMs &
-                                    provides an unparalleled conversational experience with advanced document processing
-                                    capabilities.
-                                </p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span
-                                        class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-sm border border-cyan-500/30 hover:bg-cyan-500/40 hover:border-cyan-400 transition-all duration-300 cursor-pointer transform hover:scale-105">NodeJS</span>
-                                    <span
-                                        class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-sm border border-cyan-500/30 hover:bg-cyan-500/40 hover:border-cyan-400 transition-all duration-300 cursor-pointer transform hover:scale-105">ExpressJS</span>
-                                    <span
-                                        class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-sm border border-cyan-500/30 hover:bg-cyan-500/40 hover:border-cyan-400 transition-all duration-300 cursor-pointer transform hover:scale-105">ReactJS</span>
-                                    <span
-                                        class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-sm border border-cyan-500/30 hover:bg-cyan-500/40 hover:border-cyan-400 transition-all duration-300 cursor-pointer transform hover:scale-105">MongoDB</span>
-                                    <span
-                                        class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-sm border border-cyan-500/30 hover:bg-cyan-500/40 hover:border-cyan-400 transition-all duration-300 cursor-pointer transform hover:scale-105">Redis</span>
-                                    <span
-                                        class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-sm border border-cyan-500/30 hover:bg-cyan-500/40 hover:border-cyan-400 transition-all duration-300 cursor-pointer transform hover:scale-105">LangChain</span>
-                                    <span
-                                        class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-sm border border-cyan-500/30 hover:bg-cyan-500/40 hover:border-cyan-400 transition-all duration-300 cursor-pointer transform hover:scale-105">Elasticsearch</span>
-                                    <span
-                                        class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-sm border border-cyan-500/30 hover:bg-cyan-500/40 hover:border-cyan-400 transition-all duration-300 cursor-pointer transform hover:scale-105">Kibana</span>
-                                </div>
-                            </div>
-                            <div
-                                class="w-24 h-24 bg-gray-700 rounded-lg flex items-center justify-center text-5xl flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                                🤖
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-2 animate-fadeIn group"
-                        style="animation-delay: 0.3s">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div class="flex-1">
-                                <p
-                                    class="text-cyan-400 text-sm font-semibold mb-2 group-hover:text-cyan-300 transition-colors">
-                                    Personal Project</p>
-                                <h3 class="text-2xl font-bold mb-3 group-hover:text-cyan-300 transition-colors">
-                                    <a href="https://github.com/Tuanne2108/movieTicketBooking" target="_blank"
-                                        rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">Movie
-                                        Ticket Booking Platform</a>
-                                </h3>
-                                <p
-                                    class="text-gray-300 mb-4 leading-relaxed group-hover:text-gray-100 transition-colors">
-                                    This project is a full-stack web application for booking movie tickets. It is built
-                                    using the MERN stack (MongoDB,
-                                    Express.js, ReactJS, Node.js) & offers a seamless & user-friendly experience for
-                                    users to browse movies, select
-                                    showtimes & book tickets online.
-                                </p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span
-                                        class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-sm border border-cyan-500/30 hover:bg-cyan-500/40 hover:border-cyan-400 transition-all duration-300 cursor-pointer transform hover:scale-105">NodeJS</span>
-                                    <span
-                                        class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-sm border border-cyan-500/30 hover:bg-cyan-500/40 hover:border-cyan-400 transition-all duration-300 cursor-pointer transform hover:scale-105">ExpressJS</span>
-                                    <span
-                                        class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-sm border border-cyan-500/30 hover:bg-cyan-500/40 hover:border-cyan-400 transition-all duration-300 cursor-pointer transform hover:scale-105">ReactJS</span>
-                                    <span
-                                        class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-sm border border-cyan-500/30 hover:bg-cyan-500/40 hover:border-cyan-400 transition-all duration-300 cursor-pointer transform hover:scale-105">MongoDB</span>
-                                </div>
-                            </div>
-                            <div
-                                class="w-24 h-24 bg-gray-700 rounded-lg flex items-center justify-center text-5xl flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                                🎬
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- EDUCATION SECTION -->
-        <section id="education" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800/50">
-            <div class="max-w-6xl mx-auto">
-                <h2 class="text-4xl font-bold mb-12 text-center animate-fadeIn">Education</h2>
-                <div
-                    class="bg-gray-800 rounded-lg p-8 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-2 animate-fadeIn group">
-                    <div class="flex flex-col md:flex-row gap-6">
-                        <div
-                            class="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                            <span class="text-4xl group-hover:animate-jumpOnce">🎓</span>
-                        </div>
-                        <div class="flex-1">
-                            <h3
-                                class="text-2xl font-bold text-cyan-400 mb-2 group-hover:text-cyan-300 transition-colors">
-                                International University - VNU Ho Chi Minh City</h3>
-                            <p class="text-xl text-gray-300 mb-1">Engineer, Information Technology</p>
-                            <p class="text-gray-400 mb-4">October 2020 - August 2025</p>
-                            <div class="space-y-2">
-                                <div class="flex items-start gap-2">
-                                    <span class="text-cyan-400 mt-1">•</span>
-                                    <p class="text-gray-300 group-hover:text-gray-100 transition-colors">Strong
-                                        foundation in Software Development & IT Operations</p>
-                                </div>
-                                <div class="flex items-start gap-2">
-                                    <span class="text-cyan-400 mt-1">•</span>
-                                    <p class="text-gray-300 group-hover:text-gray-100 transition-colors">Computer
-                                        Science degree with practical industry experience</p>
-                                </div>
-                                <div class="flex items-start gap-2">
-                                    <span class="text-cyan-400 mt-1">•</span>
-                                    <p class="text-gray-300 group-hover:text-gray-100 transition-colors">Specialized
-                                        knowledge in Full-stack Web Development & Cloud Technologies</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- COURSES SECTION -->
-        <section id="courses" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800/50">
-            <div class="max-w-6xl mx-auto">
-                <h2 class="text-4xl font-bold mb-12 text-center animate-fadeIn">Courses & Certifications</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Course 1 -->
-                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-1 animate-fadeIn group"
-                        style="animation-delay: 0.1s">
-                        <div class="flex items-start gap-4">
-                            <div
-                                class="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                                <span class="text-2xl group-hover:animate-jumpOnce">🌐</span>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-lg font-semibold text-cyan-400 mb-1">English Language Proficiency: IELTS
-                                    Academic (B2 Level)</h3>
-                                <p class="text-gray-300 text-sm mb-2">IDP • August 2025</p>
-                                <p class="text-gray-400 text-xs">International English Language Testing System</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Course 2 -->
-                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-1 animate-fadeIn group"
-                        style="animation-delay: 0.15s">
-                        <div class="flex items-start gap-4">
-                            <div
-                                class="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                                <span class="text-2xl group-hover:animate-jumpOnce">💻</span>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-lg font-semibold text-cyan-400 mb-1">The Complete JavaScript Course
-                                    2025: From Zero to Expert!</h3>
-                                <p class="text-gray-300 text-sm mb-2">Udemy Bosch • July 2025</p>
-                                <p class="text-gray-400 text-xs">JavaScript, ES6+, DOM, Async/Await, APIs</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Course 3 -->
-                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-1 animate-fadeIn group"
-                        style="animation-delay: 0.2s">
-                        <div class="flex items-start gap-4">
-                            <div
-                                class="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                                <span class="text-2xl group-hover:animate-jumpOnce">⚛️</span>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-lg font-semibold text-cyan-400 mb-1">React - The Complete Guide 2025
-                                    (incl. Next.js, Redux)</h3>
-                                <p class="text-gray-300 text-sm mb-2">Udemy Bosch • September 2025</p>
-                                <p class="text-gray-400 text-xs">React, Next.js, Redux, Hooks, State Management</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Course 4 -->
-                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-1 animate-fadeIn group"
-                        style="animation-delay: 0.25s">
-                        <div class="flex items-start gap-4">
-                            <div
-                                class="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                                <span class="text-2xl group-hover:animate-jumpOnce">🔧</span>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-lg font-semibold text-cyan-400 mb-1">ServiceNow ITSM from 0 to Hero</h3>
-                                <p class="text-gray-300 text-sm mb-2">Udemy Bosch • September 2025</p>
-                                <p class="text-gray-400 text-xs">ServiceNow, ITSM, Incident Management, Configuration
-                                    Management</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Course 5 -->
-                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-1 animate-fadeIn group"
-                        style="animation-delay: 0.3s">
-                        <div class="flex items-start gap-4">
-                            <div
-                                class="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                                <span class="text-2xl group-hover:animate-jumpOnce">🚀</span>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-lg font-semibold text-cyan-400 mb-1">The Complete Full-Stack Web
-                                    Development Bootcamp</h3>
-                                <p class="text-gray-300 text-sm mb-2">Udemy Bosch • October 2025</p>
-                                <p class="text-gray-400 text-xs">Full-Stack Development, Frontend & Backend, Deployment
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- AWARDS SECTION -->
-        <section id="awards" class="py-20 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-6xl mx-auto">
-                <h2 class="text-4xl font-bold mb-12 text-center animate-fadeIn">Honors & Awards</h2>
-                <div
-                    class="bg-gray-800 rounded-lg p-8 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-2 animate-fadeIn group">
-                    <div class="flex flex-col md:flex-row gap-6">
-                        <div
-                            class="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                            <span class="text-4xl group-hover:animate-jumpOnce">🏆</span>
-                        </div>
-                        <div class="flex-1">
-                            <h3
-                                class="text-2xl font-bold text-cyan-400 mb-2 group-hover:text-cyan-300 transition-colors">
-                                Second Prize - IT Hackathon 2024</h3>
-                            <p class="text-gray-300 mb-1">Issued by Solana Vietnam · Jun 2024</p>
-                            <p class="text-gray-400 mb-4">Associated with International University - VNU HCMC</p>
-                            <div class="flex flex-wrap gap-3">
-                                <a href="https://github.com/nguyensngoc108/Hackathon" target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="inline-flex items-center gap-2 bg-cyan-500/20 hover:bg-cyan-500/40 text-cyan-400 hover:text-cyan-300 px-4 py-2 rounded-lg transition-all duration-300 border border-cyan-500/30 hover:border-cyan-400 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/30">
-                                    GitHub Repository
-                                </a>
-                                <a href="https://dorahacks.io/buidl/14042" target="_blank" rel="noopener noreferrer"
-                                    class="inline-flex items-center gap-2 bg-cyan-500/20 hover:bg-cyan-500/40 text-cyan-400 hover:text-cyan-300 px-4 py-2 rounded-lg transition-all duration-300 border border-cyan-500/30 hover:border-cyan-400 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/30">
-                                    DoraHacks Submission
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ORGANIZATIONS SECTION -->
-        <section id="organizations" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800/50">
-            <div class="max-w-6xl mx-auto">
-                <h2 class="text-4xl font-bold mb-12 text-center animate-fadeIn">Organizations</h2>
                 <div class="space-y-6">
-                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-2 animate-fadeIn group"
-                        style="animation-delay: 0.1s">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div
-                                class="w-16 h-16 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                                <span class="text-3xl group-hover:animate-jumpOnce">🎯</span>
+                    <!-- Job 1 -->
+                    <div class="reveal flex gap-6">
+                        <div class="hidden md:flex flex-col items-center pt-1 flex-shrink-0">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="card p-6 flex-1">
+                            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                                <div>
+                                    <h3 class="text-lg font-bold text-white">Application Operations Specialist</h3>
+                                    <a href="https://www.sacombank.com.vn/ca-nhan.html" target="_blank" class="text-cyan-400 mono text-xs hover:text-cyan-300 transition-colors">Sacombank</a>
+                                    <span class="text-gray-600 mono text-xs"> · Ho Chi Minh City</span>
+                                </div>
+                                <span class="mono text-xs text-gray-500 whitespace-nowrap bg-white/5 px-3 py-1 rounded-full border border-white/10">Dec 2025 – Present</span>
                             </div>
-                            <div class="flex-1">
-                                <h3
-                                    class="text-xl font-bold text-cyan-400 mb-1 group-hover:text-cyan-300 transition-colors">
-                                    IT Youth Union - International University - VNUHCM</h3>
-                                <p class="text-gray-300 mb-1 group-hover:text-gray-100 transition-colors">Executive
-                                    Committee of the Information Technology Youth Union</p>
-                                <p class="text-gray-400 text-sm mb-2">Jan 2021 - Nov 2022</p>
-                                <p class="text-gray-500 text-sm">Associated with International University - VNU HCMC</p>
-                            </div>
+                            <ul class="space-y-2 text-sm text-gray-400 leading-relaxed">
+                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Engineered T24 solutions encompassing version design, routine development, and screen customization to streamline core banking workflows including account management and transaction processing functions</li>
+                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Developed scalable batch and real-time services utilizing multi-threading techniques to process large-scale transaction data efficiently, ensuring system stability under high-volume operations</li>
+                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Applied extensive expertise in international payment business processes, SWIFT protocols, and payment documentation systems to support the bank's global payment infrastructure</li>
+                            </ul>
                         </div>
                     </div>
 
-                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-2 animate-fadeIn group"
-                        style="animation-delay: 0.2s">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div
-                                class="w-16 h-16 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                                <span class="text-3xl group-hover:animate-jumpOnce">📢</span>
+                    <!-- Job 2 -->
+                    <div class="reveal flex gap-6">
+                        <div class="hidden md:flex flex-col items-center pt-1 flex-shrink-0">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="card p-6 flex-1">
+                            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                                <div>
+                                    <h3 class="text-lg font-bold text-white">Web Application Developer</h3>
+                                    <a href="https://aqtech.edu.vn/" target="_blank" class="text-cyan-400 mono text-xs hover:text-cyan-300 transition-colors">Anh Quan Technology (AQTech)</a>
+                                    <span class="text-gray-600 mono text-xs"> · Ho Chi Minh City</span>
+                                </div>
+                                <span class="mono text-xs text-gray-500 whitespace-nowrap bg-white/5 px-3 py-1 rounded-full border border-white/10">Apr 2025 – Present</span>
                             </div>
-                            <div class="flex-1">
-                                <h3
-                                    class="text-xl font-bold text-cyan-400 mb-1 group-hover:text-cyan-300 transition-colors">
-                                    IT Youth Union - International University - VNUHCM</h3>
-                                <p class="text-gray-300 mb-1 group-hover:text-gray-100 transition-colors">PR Leader</p>
-                                <p class="text-gray-400 text-sm mb-2">Jan 2021 - Dec 2021</p>
-                                <p class="text-gray-500 text-sm">Associated with International University - VNU HCMC</p>
-                            </div>
+                            <ul class="space-y-2 text-sm text-gray-400 leading-relaxed">
+                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Boosted conversion rates by designing &amp; implementing responsive landing pages with advanced UX principles</li>
+                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Reduced page load times by 40% through custom WordPress theme optimization &amp; performance enhancement techniques. Delivered custom plugins that automated business processes, saving hours weekly</li>
+                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Led technical documentation efforts for the development team, improving project handover efficiency</li>
+                            </ul>
                         </div>
                     </div>
 
-                    <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-900/50 transform hover:-translate-y-2 animate-fadeIn group"
-                        style="animation-delay: 0.3s">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div
-                                class="w-16 h-16 bg-gray-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-400/30">
-                                <span class="text-3xl group-hover:animate-jumpOnce">🎨</span>
+                    <!-- Job 3 -->
+                    <div class="reveal flex gap-6">
+                        <div class="hidden md:flex flex-col items-center pt-1 flex-shrink-0">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="card p-6 flex-1">
+                            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                                <div>
+                                    <h3 class="text-lg font-bold text-white">IT Operations Engineer – Intern</h3>
+                                    <a href="https://www.bosch.com.vn/" target="_blank" class="text-cyan-400 mono text-xs hover:text-cyan-300 transition-colors">Bosch Global Software Technologies Vietnam</a>
+                                </div>
+                                <span class="mono text-xs text-gray-500 whitespace-nowrap bg-white/5 px-3 py-1 rounded-full border border-white/10">Apr – Sep 2025</span>
                             </div>
-                            <div class="flex-1">
-                                <h3
-                                    class="text-xl font-bold text-cyan-400 mb-1 group-hover:text-cyan-300 transition-colors">
-                                    IT Youth Union - International University - VNUHCM</h3>
-                                <p class="text-gray-300 mb-1 group-hover:text-gray-100 transition-colors">Designer</p>
-                                <p class="text-gray-400 text-sm mb-2">Nov 2020 - Nov 2021</p>
-                                <p class="text-gray-500 text-sm">Associated with International University - VNU HCMC</p>
+                            <ul class="space-y-2 text-sm text-gray-400 leading-relaxed">
+                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Supported End-Users via SMT Ticket following ITIL Process with defined SLA &amp; KPI requirements (L2 Level)</li>
+                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Contributed to problem investigation &amp; change management processes. Worked with Oracle PL/SQL for database management &amp; optimization. Provided support for new feature releases &amp; hot-fixes implementation</li>
+                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Maintained &amp; managed application servers to ensure optimal performance</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Job 4 -->
+                    <div class="reveal flex gap-6">
+                        <div class="hidden md:flex flex-col items-center pt-1 flex-shrink-0">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="card p-6 flex-1">
+                            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                                <div>
+                                    <h3 class="text-lg font-bold text-white">Web Application Developer</h3>
+                                    <a href="https://www.facebook.com/profile.php/?id=100094716201168" target="_blank" class="text-cyan-400 mono text-xs hover:text-cyan-300 transition-colors">TheDigitalLab</a>
+                                    <span class="text-gray-600 mono text-xs"> · Ho Chi Minh City</span>
+                                </div>
+                                <span class="mono text-xs text-gray-500 whitespace-nowrap bg-white/5 px-3 py-1 rounded-full border border-white/10">Aug 2023 – Dec 2024</span>
                             </div>
+                            <ul class="space-y-2 text-sm text-gray-400 leading-relaxed">
+                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Increased lead generation through development of high-converting landing pages &amp; custom form integrations</li>
+                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Automated marketing workflows by integrating custom forms with MailChimp, processing 50+ leads monthly</li>
+                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Enhanced website functionality through strategic plugin research &amp; implementation of performance-optimized solutions</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Job 5 -->
+                    <div class="reveal flex gap-6">
+                        <div class="hidden md:flex flex-col items-center pt-1 flex-shrink-0">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="card p-6 flex-1">
+                            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                                <div>
+                                    <h3 class="text-lg font-bold text-white">Software Developer – Intern</h3>
+                                    <a href="https://dotb.vn/" target="_blank" class="text-cyan-400 mono text-xs hover:text-cyan-300 transition-colors">DotB Educational Technology</a>
+                                </div>
+                                <span class="mono text-xs text-gray-500 whitespace-nowrap bg-white/5 px-3 py-1 rounded-full border border-white/10">Apr 2023 – Apr 2024</span>
+                            </div>
+                            <ul class="space-y-2 text-sm text-gray-400 leading-relaxed">
+                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Optimized system performance through code refactoring &amp; database query optimization across multiple client websites. Developed custom SugarCRM integration APIs enabling seamless data flow between CRM &amp; WordPress platforms</li>
+                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Built custom client websites from scratch, exceeding performance benchmarks &amp; client expectations</li>
+                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Collaborated with design &amp; marketing teams to deliver cohesive digital solutions for education sector clients</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- CONTACT SECTION -->
-        <section class="py-20 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-4xl font-bold mb-6 animate-fadeIn">Contact</h2>
-                <p class="text-2xl text-cyan-400 mb-8 hover:text-cyan-300 transition-colors duration-300 animate-fadeIn"
-                    style="animation-delay: 0.1s">dtthuan.contact@gmail.com</p>
-                <div class="flex justify-center gap-6 mb-8 animate-fadeIn" style="animation-delay: 0.2s">
+    <!-- ── PROJECTS ── -->
+    <section id="projects" class="py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="section-header-wrap reveal">
+                <div class="section-header-line"></div>
+                <h2 class="text-3xl md:text-4xl font-bold section-title">Personal Projects</h2>
+                <div class="section-header-line right"></div>
+            </div>
+
+            <div class="space-y-5">
+                <!-- Project 1 -->
+                <div class="card p-6 reveal group">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="flex-1 min-w-0">
+                            <p class="mono text-xs text-gray-600 mb-2">// personal_project_01</p>
+                            <h3 class="text-xl font-bold mb-3 group-hover:text-cyan-400 transition-colors">
+                                <a href="https://github.com/thuandtr/Social_Netword" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">Social "Netword"</a>
+                            </h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                                A comprehensive full-stack authentication system built with modern web technologies. Demonstrates a production-ready authentication flow with secure token management, password hashing &amp; session handling using HTTP-only cookies.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tag-chip">NodeJS</span>
+                                <span class="tag-chip">ExpressJS</span>
+                                <span class="tag-chip">NextJS</span>
+                                <span class="tag-chip">MySQL</span>
+                                <span class="tag-chip">Redis</span>
+                            </div>
+                        </div>
+                        <div class="w-16 h-16 rounded-xl bg-cyan-400/5 border border-cyan-400/20 flex items-center justify-center text-3xl flex-shrink-0 group-hover:border-cyan-400/50 transition-colors group-hover:bg-cyan-400/10">
+                            🌐
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="card p-6 reveal group">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="flex-1 min-w-0">
+                            <p class="mono text-xs text-gray-600 mb-2">// personal_project_02</p>
+                            <h3 class="text-xl font-bold mb-3 group-hover:text-cyan-400 transition-colors">
+                                <a href="https://github.com/thuandtr/MERN_AI_CHATBOT" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">RAG-based App for Web Frontend Dev</a>
+                            </h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                                Codfe — a state-of-the-art chatbot application using the MERN stack powered by GPT &amp; Gemini. Combines Docker-hosted Elasticsearch &amp; Kibana to provide an AI-powered assistant for developers using RAG techniques and dedicated frontend documentation.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tag-chip">NodeJS</span>
+                                <span class="tag-chip">ExpressJS</span>
+                                <span class="tag-chip">ReactJS</span>
+                                <span class="tag-chip">MongoDB</span>
+                                <span class="tag-chip">Redis</span>
+                                <span class="tag-chip">LangChain</span>
+                                <span class="tag-chip">Elasticsearch</span>
+                                <span class="tag-chip">Kibana</span>
+                            </div>
+                        </div>
+                        <div class="w-16 h-16 rounded-xl bg-cyan-400/5 border border-cyan-400/20 flex items-center justify-center text-3xl flex-shrink-0 group-hover:border-cyan-400/50 transition-colors group-hover:bg-cyan-400/10">
+                            🤖
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="card p-6 reveal group">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="flex-1 min-w-0">
+                            <p class="mono text-xs text-gray-600 mb-2">// personal_project_03</p>
+                            <h3 class="text-xl font-bold mb-3 group-hover:text-cyan-400 transition-colors">
+                                <a href="https://github.com/Tuanne2108/movieTicketBooking" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">Movie Ticket Booking Platform</a>
+                            </h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                                A full-stack web application for booking movie tickets using the MERN stack. Offers a seamless experience for users to browse movies, select showtimes &amp; book tickets online.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tag-chip">NodeJS</span>
+                                <span class="tag-chip">ExpressJS</span>
+                                <span class="tag-chip">ReactJS</span>
+                                <span class="tag-chip">MongoDB</span>
+                            </div>
+                        </div>
+                        <div class="w-16 h-16 rounded-xl bg-cyan-400/5 border border-cyan-400/20 flex items-center justify-center text-3xl flex-shrink-0 group-hover:border-cyan-400/50 transition-colors group-hover:bg-cyan-400/10">
+                            🎬
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── EDUCATION ── -->
+    <section id="education" class="py-24 px-4 sm:px-6 lg:px-8 section-alt">
+        <div class="max-w-4xl mx-auto">
+            <div class="section-header-wrap reveal">
+                <div class="section-header-line"></div>
+                <h2 class="text-3xl md:text-4xl font-bold section-title">Education</h2>
+                <div class="section-header-line right"></div>
+            </div>
+
+            <div class="card p-8 reveal">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="w-16 h-16 rounded-xl bg-cyan-400/5 border border-cyan-400/20 flex items-center justify-center text-3xl flex-shrink-0">🎓</div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-white mb-1">International University – VNU Ho Chi Minh City</h3>
+                        <p class="text-cyan-400 mono text-sm mb-1">Engineer, Information Technology</p>
+                        <p class="text-gray-600 mono text-xs mb-5">October 2020 – August 2025</p>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li class="flex gap-2"><span class="text-cyan-400 flex-shrink-0">▸</span>Strong foundation in Software Development &amp; IT Operations</li>
+                            <li class="flex gap-2"><span class="text-cyan-400 flex-shrink-0">▸</span>Computer Science degree with practical industry experience</li>
+                            <li class="flex gap-2"><span class="text-cyan-400 flex-shrink-0">▸</span>Specialized knowledge in Full-stack Web Development &amp; Cloud Technologies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── COURSES ── -->
+    <section id="courses" class="py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="section-header-wrap reveal">
+                <div class="section-header-line"></div>
+                <h2 class="text-3xl md:text-4xl font-bold section-title">Courses &amp; Certifications</h2>
+                <div class="section-header-line right"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="card p-5 reveal flex gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center text-xl flex-shrink-0">🌐</div>
+                    <div>
+                        <h3 class="font-semibold text-white text-sm mb-1">IELTS Academic (B2 Level)</h3>
+                        <p class="mono text-xs text-gray-500">IDP · August 2025</p>
+                        <p class="text-gray-600 text-xs mt-1">International English Language Testing System</p>
+                    </div>
+                </div>
+
+                <div class="card p-5 reveal flex gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center text-xl flex-shrink-0">💻</div>
+                    <div>
+                        <h3 class="font-semibold text-white text-sm mb-1">The Complete JavaScript Course 2025</h3>
+                        <p class="mono text-xs text-gray-500">Udemy Bosch · July 2025</p>
+                        <p class="text-gray-600 text-xs mt-1">JavaScript, ES6+, DOM, Async/Await, APIs</p>
+                    </div>
+                </div>
+
+                <div class="card p-5 reveal flex gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center text-xl flex-shrink-0">⚛️</div>
+                    <div>
+                        <h3 class="font-semibold text-white text-sm mb-1">React – The Complete Guide 2025</h3>
+                        <p class="mono text-xs text-gray-500">Udemy Bosch · September 2025</p>
+                        <p class="text-gray-600 text-xs mt-1">React, Next.js, Redux, Hooks, State Management</p>
+                    </div>
+                </div>
+
+                <div class="card p-5 reveal flex gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center text-xl flex-shrink-0">🔧</div>
+                    <div>
+                        <h3 class="font-semibold text-white text-sm mb-1">ServiceNow ITSM from 0 to Hero</h3>
+                        <p class="mono text-xs text-gray-500">Udemy Bosch · September 2025</p>
+                        <p class="text-gray-600 text-xs mt-1">ServiceNow, ITSM, Incident &amp; Configuration Mgmt</p>
+                    </div>
+                </div>
+
+                <div class="card p-5 reveal flex gap-4 md:col-span-2">
+                    <div class="w-10 h-10 rounded-lg bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center text-xl flex-shrink-0">🚀</div>
+                    <div>
+                        <h3 class="font-semibold text-white text-sm mb-1">The Complete Full-Stack Web Development Bootcamp</h3>
+                        <p class="mono text-xs text-gray-500">Udemy Bosch · October 2025</p>
+                        <p class="text-gray-600 text-xs mt-1">Full-Stack Development, Frontend &amp; Backend, Deployment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── AWARDS ── -->
+    <section id="awards" class="py-24 px-4 sm:px-6 lg:px-8 section-alt">
+        <div class="max-w-4xl mx-auto">
+            <div class="section-header-wrap reveal">
+                <div class="section-header-line"></div>
+                <h2 class="text-3xl md:text-4xl font-bold section-title">Honors &amp; Awards</h2>
+                <div class="section-header-line right"></div>
+            </div>
+
+            <div class="card award-card p-8 reveal">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="w-16 h-16 rounded-xl bg-yellow-400/10 border border-yellow-400/30 flex items-center justify-center text-3xl flex-shrink-0">🏆</div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-white mb-1">Second Prize – IT Hackathon 2024</h3>
+                        <p class="text-gray-400 text-sm mb-1">Issued by Solana Vietnam · Jun 2024</p>
+                        <p class="text-gray-600 mono text-xs mb-5">Associated with International University – VNU HCMC</p>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://github.com/nguyensngoc108/Hackathon" target="_blank" rel="noopener noreferrer" class="btn-primary text-xs">
+                                <span>🔗 GitHub Repo</span>
+                            </a>
+                            <a href="https://dorahacks.io/buidl/14042" target="_blank" rel="noopener noreferrer" class="btn-secondary text-xs">
+                                🌐 DoraHacks
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── ORGANIZATIONS ── -->
+    <section id="organizations" class="py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="section-header-wrap reveal">
+                <div class="section-header-line"></div>
+                <h2 class="text-3xl md:text-4xl font-bold section-title">Organizations</h2>
+                <div class="section-header-line right"></div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="card p-5 reveal flex gap-4 items-start">
+                    <div class="w-10 h-10 rounded-lg bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center text-xl flex-shrink-0">🎯</div>
+                    <div>
+                        <h3 class="font-semibold text-white text-sm">IT Youth Union – International University – VNUHCM</h3>
+                        <p class="text-cyan-400 mono text-xs mt-0.5">Executive Committee</p>
+                        <p class="text-gray-600 text-xs mt-1">Jan 2021 – Nov 2022</p>
+                    </div>
+                </div>
+                <div class="card p-5 reveal flex gap-4 items-start">
+                    <div class="w-10 h-10 rounded-lg bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center text-xl flex-shrink-0">📢</div>
+                    <div>
+                        <h3 class="font-semibold text-white text-sm">IT Youth Union – International University – VNUHCM</h3>
+                        <p class="text-cyan-400 mono text-xs mt-0.5">PR Leader</p>
+                        <p class="text-gray-600 text-xs mt-1">Jan 2021 – Dec 2021</p>
+                    </div>
+                </div>
+                <div class="card p-5 reveal flex gap-4 items-start">
+                    <div class="w-10 h-10 rounded-lg bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center text-xl flex-shrink-0">🎨</div>
+                    <div>
+                        <h3 class="font-semibold text-white text-sm">IT Youth Union – International University – VNUHCM</h3>
+                        <p class="text-cyan-400 mono text-xs mt-0.5">Designer</p>
+                        <p class="text-gray-600 text-xs mt-1">Nov 2020 – Nov 2021</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CONTACT ── -->
+    <section class="py-24 px-4 sm:px-6 lg:px-8 section-alt">
+        <div class="max-w-xl mx-auto text-center">
+            <div class="reveal">
+                <p class="code-line mb-4">// get_in_touch()</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Contact</h2>
+                <a href="mailto:dtthuan.contact@gmail.com" class="email-link" data-text="dtthuan.contact@gmail.com">dtthuan.contact@gmail.com</a>
+                <div class="flex justify-center gap-4 mt-10">
                     <a href="https://github.com/thuandtr" target="_blank" rel="noopener noreferrer"
-                        class="w-16 h-16 bg-gray-800 hover:bg-cyan-500/20 rounded-full flex items-center justify-center text-3xl transition-all duration-300 border border-gray-700 hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-400/30 transform hover:scale-110 hover:-translate-y-2">
-                        🔗
-                    </a>
+                        class="w-12 h-12 card flex items-center justify-center text-xl hover:border-cyan-400/60 transition-all hover:-translate-y-1">🐙</a>
                     <a href="https://www.linkedin.com/in/thuandtr/" target="_blank" rel="noopener noreferrer"
-                        class="w-16 h-16 bg-gray-800 hover:bg-cyan-500/20 rounded-full flex items-center justify-center text-3xl transition-all duration-300 border border-gray-700 hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-400/30 transform hover:scale-110 hover:-translate-y-2">
-                        💼
-                    </a>
+                        class="w-12 h-12 card flex items-center justify-center text-xl hover:border-cyan-400/60 transition-all hover:-translate-y-1">💼</a>
                 </div>
-                <p class="text-gray-400">Thuan, Doan Tran</p>
+                <p class="text-gray-700 mono text-xs mt-8">Thuan, Doan Tran · &copy; 2025</p>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <script>
-        // Mobile menu toggle
-        const hamburgerBtn = document.getElementById('hamburgerBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
+</main>
 
-        hamburgerBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+<script>
+/* ── PARTICLE CANVAS ── */
+(function() {
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [];
+
+    function resize() {
+        W = canvas.width  = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    for (let i = 0; i < 60; i++) {
+        particles.push({
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight,
+            r: Math.random() * 1.5 + 0.5,
+            vx: (Math.random() - 0.5) * 0.3,
+            vy: (Math.random() - 0.5) * 0.3,
+            alpha: Math.random() * 0.5 + 0.1,
         });
+    }
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    // Close mobile menu after clicking
-                    mobileMenu.classList.add('hidden');
+    function draw() {
+        ctx.clearRect(0, 0, W, H);
+        ctx.fillStyle = 'rgba(6,182,212,';
+        particles.forEach(p => {
+            p.x += p.vx; p.y += p.vy;
+            if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+            if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(6,182,212,${p.alpha})`;
+            ctx.fill();
+        });
+        // draw lines between close particles
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx*dx + dy*dy);
+                if (dist < 120) {
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.strokeStyle = `rgba(6,182,212,${0.08 * (1 - dist/120)})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.stroke();
                 }
-            });
-        });
-    </script>
-</body>
+            }
+        }
+        requestAnimationFrame(draw);
+    }
+    draw();
+})();
 
+/* ── CURSOR GLOW ── */
+const cursorGlow = document.getElementById('cursor-glow');
+document.addEventListener('mousemove', e => {
+    cursorGlow.style.left = e.clientX + 'px';
+    cursorGlow.style.top  = e.clientY + 'px';
+});
+
+/* ── SCROLL PROGRESS ── */
+const progressBar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+    progressBar.style.width = pct + '%';
+    // scroll-to-top button
+    const btn = document.getElementById('scroll-top');
+    if (window.scrollY > 400) btn.classList.add('visible');
+    else btn.classList.remove('visible');
+});
+
+/* ── INTERSECTION OBSERVER for reveal ── */
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            // section-title underline
+            if (entry.target.classList.contains('section-title')) {
+                entry.target.classList.add('visible');
+            }
+        }
+    });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal, .reveal-left, .section-title').forEach(el => observer.observe(el));
+
+/* ── ACTIVE NAV on scroll ── */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    navLinks.forEach(a => {
+        a.classList.remove('active-nav');
+        if (a.getAttribute('href') === '#' + current) a.classList.add('active-nav');
+    });
+}, { passive: true });
+
+/* ── HAMBURGER ── */
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileMenu   = document.getElementById('mobileMenu');
+hamburgerBtn.addEventListener('click', () => {
+    hamburgerBtn.classList.toggle('open');
+    mobileMenu.classList.toggle('hidden');
+});
+
+/* ── SMOOTH SCROLL (close mobile menu) ── */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            mobileMenu.classList.add('hidden');
+            hamburgerBtn.classList.remove('open');
+        }
+    });
+});
+
+/* ── TYPING EFFECT ── */
+const roles = [
+    'Software Developer',
+    'IT Operations Engineer',
+    'Application Operations Specialist @ Sacombank',
+    'RAG / LLM Researcher',
+];
+let ri = 0, ci = 0, deleting = false;
+const el = document.getElementById('typed-role');
+
+function type() {
+    const word = roles[ri];
+    if (!deleting) {
+        el.textContent = word.slice(0, ++ci);
+        if (ci === word.length) { deleting = true; setTimeout(type, 1800); return; }
+    } else {
+        el.textContent = word.slice(0, --ci);
+        if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; }
+    }
+    setTimeout(type, deleting ? 40 : 80);
+}
+type();
+
+/* ── CARD MOUSE RADIAL (CSS var) ── */
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', (e.clientX - r.left) + 'px');
+        card.style.setProperty('--mouse-y', (e.clientY - r.top) + 'px');
+    });
+});
+
+/* ── HERO reveal on load ── */
+document.querySelector('.reveal')?.classList.add('visible');
+setTimeout(() => {
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+        if (i === 0) el.classList.add('visible');
+    });
+}, 100);
+</script>
+</body>
 </html>
