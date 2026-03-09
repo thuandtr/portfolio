@@ -34,6 +34,8 @@
             font-family: 'Syne', sans-serif;
             antialiased: true;
             overflow-x: hidden;
+            word-break: break-word;
+            overflow-wrap: break-word;
         }
 
         code, .mono { font-family: 'JetBrains Mono', monospace; }
@@ -97,6 +99,12 @@
             -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
             z-index: 50;
+            overflow-x: hidden;
+        }
+        
+        header .max-w-7xl {
+            overflow-x: hidden;
+            width: 100%;
         }
 
         /* Active nav link */
@@ -327,7 +335,7 @@
             box-shadow: 0 12px 40px rgba(250,204,21,0.08);
         }
 
-        /* ── SCROLL TO TOP ── */
+        /* ── SCROLL to TOP ── */
         #scroll-top {
             position: fixed;
             bottom: 2rem; right: 2rem;
@@ -347,6 +355,108 @@
         #scroll-top.visible { opacity: 1; transform: translateY(0); }
         #scroll-top:hover { background: rgba(6,182,212,0.3); }
 
+        /* ── MOBILE RESPONSIVE FIX ── */
+        @media (max-width: 640px) {
+            html, body {
+                overflow-x: hidden !important;
+                width: 100%;
+            }
+            
+            main, header, section {
+                max-width: 100%;
+                width: 100%;
+                overflow-x: hidden;
+            }
+            
+            .max-w-5xl, .max-w-6xl, .max-w-4xl, .max-w-xl, .max-w-2xl {
+                padding-left: 1rem;
+                padding-right: 1rem;
+                box-sizing: border-box;
+                width: 100%;
+            }
+            
+            /* Ensure flex containers wrap properly */
+            .flex-wrap {
+                min-width: 0;
+            }
+            
+            .flex-wrap > * {
+                min-width: 0;
+                word-break: break-word;
+                overflow-wrap: break-word;
+            }
+            
+            /* Reduce gaps on mobile */
+            .gap-6 { gap: 1rem !important; }
+            .gap-3 { gap: 0.75rem !important; }
+            .gap-2 { gap: 0.5rem !important; }
+            
+            /* Ensure cards don't overflow */
+            .card {
+                overflow: hidden;
+                min-width: 0;
+                width: 100%;
+            }
+            
+            /* Flexible directions on mobile */
+            .flex-col { width: 100%; }
+            
+            /* Ensure longer text wrap */
+            p, span, a {
+                word-break: break-word;
+                overflow-wrap: break-word;
+                hyphens: auto;
+            }
+            
+            /* Skill badges wrapping */
+            .skill-badge {
+                min-width: 70px;
+                flex-shrink: 1;
+            }
+            
+            /* Experience timeline mobile */
+            .flex-1 { min-width: 0; }
+            
+            /* Hero section text sizing */
+            h1 { word-break: break-word; white-space: normal; }
+            
+            /* Tag chips responsive */
+            .tag-chip { font-size: 0.65rem; padding: 2px 8px; }
+            
+            /* Buttons on mobile */
+            .btn-primary, .btn-secondary {
+                min-width: 0;
+                white-space: normal;
+                font-size: 0.75rem;
+                padding: 8px 16px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .max-w-5xl, .max-w-6xl, .max-w-4xl, .max-w-xl, .max-w-2xl {
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+            }
+            
+            .gap-6 { gap: 0.75rem !important; }
+            .gap-4 { gap: 0.5rem !important; }
+            .gap-3 { gap: 0.4rem !important; }
+            
+            .card { padding: 1rem !important; }
+            
+            h1 { font-size: 2rem !important; line-height: 1.1; }
+            h2 { font-size: 1.5rem !important; }
+            h3 { font-size: 1rem !important; }
+            
+            .hero-tag { font-size: 0.65rem; }
+            
+            .badge-label { font-size: 0.6rem; }
+            .badge-icon { font-size: 1.2rem; }
+            
+            /* Ensure links don't break layout */
+            a { word-break: break-word; }
+        }
+
         /* ── CONTACT email hover ── */
         .email-link {
             position: relative;
@@ -354,6 +464,8 @@
             color: var(--cyan);
             text-decoration: none;
             font-size: 1.1rem;
+            word-break: break-all;
+            overflow-wrap: break-word;
         }
         .email-link::before {
             content: attr(data-text);
@@ -579,11 +691,11 @@
 
             <div class="card p-8 reveal">
                 <p class="code-line mb-4">/* currently working at */</p>
-                <h3 class="text-xl md:text-2xl font-bold text-white mb-2">Information Technology Engineer</h3>
-                <p class="text-cyan-400 mono text-sm mb-6">
+                <h3 class="text-xl md:text-2xl font-bold text-white mb-2 break-words">Information Technology Engineer</h3>
+                <p class="text-cyan-400 mono text-sm mb-6 break-all">
                     Application Operations Specialist <span class="text-gray-500">@</span> Saigon Commercial Joint Stock Bank
                 </p>
-                <p class="text-gray-400 leading-relaxed text-[0.95rem] mb-8 text-justify">
+                <p class="text-gray-400 leading-relaxed text-[0.95rem] mb-8 text-justify break-words">
                     Graduated with a Computer Science degree from the International University - Vietnam National University Ho Chi Minh City (Class of 2025) with a solid foundation in Software Development and IT Operations. Professional experience includes significant internships at leading technology companies: PHP Programmer at DotB (2023), gaining practical experience in web development, and IT Operations Intern at Bosch Global Software Technologies Vietnam (2025). Currently working as an Application Operations Specialist at the Application Operations Center under the IT Department of Saigon Commercial Joint Stock Bank (Sacombank, Head Office), developing capabilities in IT Operations Management and Software Development. Passionate about applying technology to drive innovative solutions and committed to continuous learning in a collaborative, dynamic environment.
                 </p>
                 <div class="flex flex-wrap gap-3">
@@ -694,109 +806,109 @@
 
                 <div class="space-y-6">
                     <!-- Job 1 -->
-                    <div class="reveal flex gap-6">
+                    <div class="reveal flex gap-6 min-w-0">
                         <div class="hidden md:flex flex-col items-center pt-1 flex-shrink-0">
                             <div class="timeline-dot"></div>
                         </div>
-                        <div class="card p-6 flex-1">
-                            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
-                                <div>
-                                    <h3 class="text-lg font-bold text-white">Application Operations Specialist</h3>
-                                    <a href="https://www.sacombank.com.vn/ca-nhan.html" target="_blank" class="text-cyan-400 mono text-xs hover:text-cyan-300 transition-colors">Sacombank</a>
-                                    <span class="text-gray-600 mono text-xs"> · Ho Chi Minh City</span>
+                        <div class="card p-6 flex-1 min-w-0">
+                            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3 min-w-0">
+                                <div class="min-w-0">
+                                    <h3 class="text-lg font-bold text-white break-words">Application Operations Specialist</h3>
+                                    <a href="https://www.sacombank.com.vn/ca-nhan.html" target="_blank" class="text-cyan-400 mono text-xs hover:text-cyan-300 transition-colors break-all">Sacombank</a>
+                                    <span class="text-gray-600 mono text-xs break-words"> · Ho Chi Minh City</span>
                                 </div>
-                                <span class="mono text-xs text-gray-500 whitespace-nowrap bg-white/5 px-3 py-1 rounded-full border border-white/10">Dec 2025 – Present</span>
+                                <span class="mono text-xs text-gray-500 whitespace-nowrap bg-white/5 px-3 py-1 rounded-full border border-white/10 flex-shrink-0">Dec 2025 – Present</span>
                             </div>
                             <ul class="space-y-2 text-sm text-gray-400 leading-relaxed">
-                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Engineered T24 solutions encompassing version design, routine development, and screen customization to streamline core banking workflows including account management and transaction processing functions</li>
-                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Developed scalable batch and real-time services utilizing multi-threading techniques to process large-scale transaction data efficiently, ensuring system stability under high-volume operations</li>
-                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Applied extensive expertise in international payment business processes, SWIFT protocols, and payment documentation systems to support the bank's global payment infrastructure</li>
+                                <li class="flex gap-2 min-w-0"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span><span class="break-words">Engineered T24 solutions encompassing version design, routine development, and screen customization to streamline core banking workflows including account management and transaction processing functions</span></li>
+                                <li class="flex gap-2 min-w-0"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span><span class="break-words">Developed scalable batch and real-time services utilizing multi-threading techniques to process large-scale transaction data efficiently, ensuring system stability under high-volume operations</span></li>
+                                <li class="flex gap-2 min-w-0"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span><span class="break-words">Applied extensive expertise in international payment business processes, SWIFT protocols, and payment documentation systems to support the bank's global payment infrastructure</span></li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- Job 2 -->
-                    <div class="reveal flex gap-6">
+                    <div class="reveal flex gap-6 min-w-0">
                         <div class="hidden md:flex flex-col items-center pt-1 flex-shrink-0">
                             <div class="timeline-dot"></div>
                         </div>
-                        <div class="card p-6 flex-1">
-                            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
-                                <div>
-                                    <h3 class="text-lg font-bold text-white">Web Application Developer</h3>
-                                    <a href="https://aqtech.edu.vn/" target="_blank" class="text-cyan-400 mono text-xs hover:text-cyan-300 transition-colors">Anh Quan Technology (AQTech)</a>
-                                    <span class="text-gray-600 mono text-xs"> · Ho Chi Minh City</span>
+                        <div class="card p-6 flex-1 min-w-0">
+                            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3 min-w-0">
+                                <div class="min-w-0">
+                                    <h3 class="text-lg font-bold text-white break-words">Web Application Developer</h3>
+                                    <a href="https://aqtech.edu.vn/" target="_blank" class="text-cyan-400 mono text-xs hover:text-cyan-300 transition-colors break-all">Anh Quan Technology (AQTech)</a>
+                                    <span class="text-gray-600 mono text-xs break-words"> · Ho Chi Minh City</span>
                                 </div>
-                                <span class="mono text-xs text-gray-500 whitespace-nowrap bg-white/5 px-3 py-1 rounded-full border border-white/10">Apr 2025 – Present</span>
+                                <span class="mono text-xs text-gray-500 whitespace-nowrap bg-white/5 px-3 py-1 rounded-full border border-white/10 flex-shrink-0">Apr 2025 – Present</span>
                             </div>
                             <ul class="space-y-2 text-sm text-gray-400 leading-relaxed">
-                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Boosted conversion rates by designing &amp; implementing responsive landing pages with advanced UX principles</li>
-                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Reduced page load times by 40% through custom WordPress theme optimization &amp; performance enhancement techniques. Delivered custom plugins that automated business processes, saving hours weekly</li>
-                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Led technical documentation efforts for the development team, improving project handover efficiency</li>
+                                <li class="flex gap-2 min-w-0"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span><span class="break-words">Boosted conversion rates by designing &amp; implementing responsive landing pages with advanced UX principles</span></li>
+                                <li class="flex gap-2 min-w-0"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span><span class="break-words">Reduced page load times by 40% through custom WordPress theme optimization &amp; performance enhancement techniques. Delivered custom plugins that automated business processes, saving hours weekly</span></li>
+                                <li class="flex gap-2 min-w-0"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span><span class="break-words">Led technical documentation efforts for the development team, improving project handover efficiency</span></li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- Job 3 -->
-                    <div class="reveal flex gap-6">
+                    <div class="reveal flex gap-6 min-w-0">
                         <div class="hidden md:flex flex-col items-center pt-1 flex-shrink-0">
                             <div class="timeline-dot"></div>
                         </div>
-                        <div class="card p-6 flex-1">
-                            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
-                                <div>
-                                    <h3 class="text-lg font-bold text-white">IT Operations Engineer – Intern</h3>
-                                    <a href="https://www.bosch.com.vn/" target="_blank" class="text-cyan-400 mono text-xs hover:text-cyan-300 transition-colors">Bosch Global Software Technologies Vietnam</a>
+                        <div class="card p-6 flex-1 min-w-0">
+                            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3 min-w-0">
+                                <div class="min-w-0">
+                                    <h3 class="text-lg font-bold text-white break-words">IT Operations Engineer – Intern</h3>
+                                    <a href="https://www.bosch.com.vn/" target="_blank" class="text-cyan-400 mono text-xs hover:text-cyan-300 transition-colors break-all">Bosch Global Software Technologies Vietnam</a>
                                 </div>
-                                <span class="mono text-xs text-gray-500 whitespace-nowrap bg-white/5 px-3 py-1 rounded-full border border-white/10">Apr – Sep 2025</span>
+                                <span class="mono text-xs text-gray-500 whitespace-nowrap bg-white/5 px-3 py-1 rounded-full border border-white/10 flex-shrink-0">Apr – Sep 2025</span>
                             </div>
                             <ul class="space-y-2 text-sm text-gray-400 leading-relaxed">
-                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Supported End-Users via SMT Ticket following ITIL Process with defined SLA &amp; KPI requirements (L2 Level)</li>
-                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Contributed to problem investigation &amp; change management processes. Worked with Oracle PL/SQL for database management &amp; optimization. Provided support for new feature releases &amp; hot-fixes implementation</li>
-                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Maintained &amp; managed application servers to ensure optimal performance</li>
+                                <li class="flex gap-2 min-w-0"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span><span class="break-words">Supported End-Users via SMT Ticket following ITIL Process with defined SLA &amp; KPI requirements (L2 Level)</span></li>
+                                <li class="flex gap-2 min-w-0"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span><span class="break-words">Contributed to problem investigation &amp; change management processes. Worked with Oracle PL/SQL for database management &amp; optimization. Provided support for new feature releases &amp; hot-fixes implementation</span></li>
+                                <li class="flex gap-2 min-w-0"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span><span class="break-words">Maintained &amp; managed application servers to ensure optimal performance</span></li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- Job 4 -->
-                    <div class="reveal flex gap-6">
+                    <div class="reveal flex gap-6 min-w-0">
                         <div class="hidden md:flex flex-col items-center pt-1 flex-shrink-0">
                             <div class="timeline-dot"></div>
                         </div>
-                        <div class="card p-6 flex-1">
-                            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
-                                <div>
-                                    <h3 class="text-lg font-bold text-white">Web Application Developer</h3>
-                                    <a href="https://www.facebook.com/profile.php/?id=100094716201168" target="_blank" class="text-cyan-400 mono text-xs hover:text-cyan-300 transition-colors">TheDigitalLab</a>
-                                    <span class="text-gray-600 mono text-xs"> · Ho Chi Minh City</span>
+                        <div class="card p-6 flex-1 min-w-0">
+                            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3 min-w-0">
+                                <div class="min-w-0">
+                                    <h3 class="text-lg font-bold text-white break-words">Web Application Developer</h3>
+                                    <a href="https://www.facebook.com/profile.php/?id=100094716201168" target="_blank" class="text-cyan-400 mono text-xs hover:text-cyan-300 transition-colors break-all">TheDigitalLab</a>
+                                    <span class="text-gray-600 mono text-xs break-words"> · Ho Chi Minh City</span>
                                 </div>
-                                <span class="mono text-xs text-gray-500 whitespace-nowrap bg-white/5 px-3 py-1 rounded-full border border-white/10">Aug 2023 – Dec 2024</span>
+                                <span class="mono text-xs text-gray-500 whitespace-nowrap bg-white/5 px-3 py-1 rounded-full border border-white/10 flex-shrink-0">Aug 2023 – Dec 2024</span>
                             </div>
                             <ul class="space-y-2 text-sm text-gray-400 leading-relaxed">
-                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Increased lead generation through development of high-converting landing pages &amp; custom form integrations</li>
-                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Automated marketing workflows by integrating custom forms with MailChimp, processing 50+ leads monthly</li>
-                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Enhanced website functionality through strategic plugin research &amp; implementation of performance-optimized solutions</li>
+                                <li class="flex gap-2 min-w-0"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span><span class="break-words">Increased lead generation through development of high-converting landing pages &amp; custom form integrations</span></li>
+                                <li class="flex gap-2 min-w-0"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span><span class="break-words">Automated marketing workflows by integrating custom forms with MailChimp, processing 50+ leads monthly</span></li>
+                                <li class="flex gap-2 min-w-0"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span><span class="break-words">Enhanced website functionality through strategic plugin research &amp; implementation of performance-optimized solutions</span></li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- Job 5 -->
-                    <div class="reveal flex gap-6">
+                    <div class="reveal flex gap-6 min-w-0">
                         <div class="hidden md:flex flex-col items-center pt-1 flex-shrink-0">
                             <div class="timeline-dot"></div>
                         </div>
-                        <div class="card p-6 flex-1">
-                            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
-                                <div>
-                                    <h3 class="text-lg font-bold text-white">Software Developer – Intern</h3>
-                                    <a href="https://dotb.vn/" target="_blank" class="text-cyan-400 mono text-xs hover:text-cyan-300 transition-colors">DotB Educational Technology</a>
+                        <div class="card p-6 flex-1 min-w-0">
+                            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3 min-w-0">
+                                <div class="min-w-0">
+                                    <h3 class="text-lg font-bold text-white break-words">Software Developer – Intern</h3>
+                                    <a href="https://dotb.vn/" target="_blank" class="text-cyan-400 mono text-xs hover:text-cyan-300 transition-colors break-all">DotB Educational Technology</a>
                                 </div>
-                                <span class="mono text-xs text-gray-500 whitespace-nowrap bg-white/5 px-3 py-1 rounded-full border border-white/10">Apr 2023 – Apr 2024</span>
+                                <span class="mono text-xs text-gray-500 whitespace-nowrap bg-white/5 px-3 py-1 rounded-full border border-white/10 flex-shrink-0">Apr 2023 – Apr 2024</span>
                             </div>
                             <ul class="space-y-2 text-sm text-gray-400 leading-relaxed">
-                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Optimized system performance through code refactoring &amp; database query optimization across multiple client websites. Developed custom SugarCRM integration APIs enabling seamless data flow between CRM &amp; WordPress platforms</li>
-                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Built custom client websites from scratch, exceeding performance benchmarks &amp; client expectations</li>
-                                <li class="flex gap-2"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span>Collaborated with design &amp; marketing teams to deliver cohesive digital solutions for education sector clients</li>
+                                <li class="flex gap-2 min-w-0"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span><span class="break-words">Optimized system performance through code refactoring &amp; database query optimization across multiple client websites. Developed custom SugarCRM integration APIs enabling seamless data flow between CRM &amp; WordPress platforms</span></li>
+                                <li class="flex gap-2 min-w-0"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span><span class="break-words">Built custom client websites from scratch, exceeding performance benchmarks &amp; client expectations</span></li>
+                                <li class="flex gap-2 min-w-0"><span class="text-cyan-400 mt-0.5 flex-shrink-0">▸</span><span class="break-words">Collaborated with design &amp; marketing teams to deliver cohesive digital solutions for education sector clients</span></li>
                             </ul>
                         </div>
                     </div>
@@ -817,13 +929,13 @@
             <div class="space-y-5">
                 <!-- Project 1 -->
                 <div class="card p-6 reveal group">
-                    <div class="flex flex-col md:flex-row gap-6">
+                    <div class="flex flex-col md:flex-row gap-6 min-w-0">
                         <div class="flex-1 min-w-0">
-                            <p class="mono text-xs text-gray-600 mb-2">// personal_project_01</p>
-                            <h3 class="text-xl font-bold mb-3 group-hover:text-cyan-400 transition-colors">
+                            <p class="mono text-xs text-gray-600 mb-2 break-words">// personal_project_01</p>
+                            <h3 class="text-xl font-bold mb-3 group-hover:text-cyan-400 transition-colors break-words">
                                 <a href="https://github.com/thuandtr/Social_Netword" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">Social "Netword"</a>
                             </h3>
-                            <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            <p class="text-gray-400 text-sm leading-relaxed mb-4 break-words">
                                 A comprehensive full-stack authentication system built with modern web technologies. Demonstrates a production-ready authentication flow with secure token management, password hashing &amp; session handling using HTTP-only cookies.
                             </p>
                             <div class="flex flex-wrap gap-2">
@@ -842,13 +954,13 @@
 
                 <!-- Project 2 -->
                 <div class="card p-6 reveal group">
-                    <div class="flex flex-col md:flex-row gap-6">
+                    <div class="flex flex-col md:flex-row gap-6 min-w-0">
                         <div class="flex-1 min-w-0">
-                            <p class="mono text-xs text-gray-600 mb-2">// personal_project_02</p>
-                            <h3 class="text-xl font-bold mb-3 group-hover:text-cyan-400 transition-colors">
+                            <p class="mono text-xs text-gray-600 mb-2 break-words">// personal_project_02</p>
+                            <h3 class="text-xl font-bold mb-3 group-hover:text-cyan-400 transition-colors break-words">
                                 <a href="https://github.com/thuandtr/MERN_AI_CHATBOT" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">RAG-based App for Web Frontend Dev</a>
                             </h3>
-                            <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            <p class="text-gray-400 text-sm leading-relaxed mb-4 break-words">
                                 Codfe — a state-of-the-art chatbot application using the MERN stack powered by GPT &amp; Gemini. Combines Docker-hosted Elasticsearch &amp; Kibana to provide an AI-powered assistant for developers using RAG techniques and dedicated frontend documentation.
                             </p>
                             <div class="flex flex-wrap gap-2">
@@ -870,13 +982,13 @@
 
                 <!-- Project 3 -->
                 <div class="card p-6 reveal group">
-                    <div class="flex flex-col md:flex-row gap-6">
+                    <div class="flex flex-col md:flex-row gap-6 min-w-0">
                         <div class="flex-1 min-w-0">
-                            <p class="mono text-xs text-gray-600 mb-2">// personal_project_03</p>
-                            <h3 class="text-xl font-bold mb-3 group-hover:text-cyan-400 transition-colors">
+                            <p class="mono text-xs text-gray-600 mb-2 break-words">// personal_project_03</p>
+                            <h3 class="text-xl font-bold mb-3 group-hover:text-cyan-400 transition-colors break-words">
                                 <a href="https://github.com/Tuanne2108/movieTicketBooking" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">Movie Ticket Booking Platform</a>
                             </h3>
-                            <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            <p class="text-gray-400 text-sm leading-relaxed mb-4 break-words">
                                 A full-stack web application for booking movie tickets using the MERN stack. Offers a seamless experience for users to browse movies, select showtimes &amp; book tickets online.
                             </p>
                             <div class="flex flex-wrap gap-2">
@@ -905,16 +1017,16 @@
             </div>
 
             <div class="card p-8 reveal">
-                <div class="flex flex-col md:flex-row gap-6">
+                <div class="flex flex-col md:flex-row gap-6 min-w-0">
                     <div class="w-16 h-16 rounded-xl bg-cyan-400/5 border border-cyan-400/20 flex items-center justify-center text-3xl flex-shrink-0">🎓</div>
-                    <div class="flex-1">
-                        <h3 class="text-xl font-bold text-white mb-1">International University – VNU Ho Chi Minh City</h3>
-                        <p class="text-cyan-400 mono text-sm mb-1">Engineer, Information Technology</p>
-                        <p class="text-gray-600 mono text-xs mb-5">October 2020 – August 2025</p>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="text-xl font-bold text-white mb-1 break-words">International University \u2013 VNU Ho Chi Minh City</h3>
+                        <p class="text-cyan-400 mono text-sm mb-1 break-words">Engineer, Information Technology</p>
+                        <p class="text-gray-600 mono text-xs mb-5">October 2020 \u2013 August 2025</p>
                         <ul class="space-y-2 text-sm text-gray-400">
-                            <li class="flex gap-2"><span class="text-cyan-400 flex-shrink-0">▸</span>Strong foundation in Software Development &amp; IT Operations</li>
-                            <li class="flex gap-2"><span class="text-cyan-400 flex-shrink-0">▸</span>Computer Science degree with practical industry experience</li>
-                            <li class="flex gap-2"><span class="text-cyan-400 flex-shrink-0">▸</span>Specialized knowledge in Full-stack Web Development &amp; Cloud Technologies</li>
+                            <li class=\"flex gap-2 min-w-0\"><span class=\"text-cyan-400 flex-shrink-0\">\u25b8</span><span class=\"break-words\">Strong foundation in Software Development &amp; IT Operations</span></li>
+                            <li class=\"flex gap-2 min-w-0\"><span class=\"text-cyan-400 flex-shrink-0\">\u25b8</span><span class=\"break-words\">Computer Science degree with practical industry experience</span></li>
+                            <li class=\"flex gap-2 min-w-0\"><span class=\"text-cyan-400 flex-shrink-0\">\u25b8</span><span class=\"break-words\">Specialized knowledge in Full-stack Web Development &amp; Cloud Technologies</span></li>
                         </ul>
                     </div>
                 </div>
@@ -990,19 +1102,14 @@
             </div>
 
             <div class="card award-card p-8 reveal">
-                <div class="flex flex-col md:flex-row gap-6">
+                <div class="flex flex-col md:flex-row gap-6 min-w-0">
                     <div class="w-16 h-16 rounded-xl bg-yellow-400/10 border border-yellow-400/30 flex items-center justify-center text-3xl flex-shrink-0">🏆</div>
-                    <div class="flex-1">
-                        <h3 class="text-xl font-bold text-white mb-1">Second Prize – IT Hackathon 2024</h3>
-                        <p class="text-gray-400 text-sm mb-1">Issued by Solana Vietnam · Jun 2024</p>
-                        <p class="text-gray-600 mono text-xs mb-5">Associated with International University – VNU HCMC</p>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="text-xl font-bold text-white mb-1 break-words">Second Prize \u2013 IT Hackathon 2024</h3>
+                        <p class="text-gray-400 text-sm mb-1 break-words">Issued by Solana Vietnam \u00b7 Jun 2024</p>
+                        <p class="text-gray-600 mono text-xs mb-5">Associated with International University \u2013 VNU HCMC</p>
                         <div class="flex flex-wrap gap-3">
-                            <a href="https://github.com/nguyensngoc108/Hackathon" target="_blank" rel="noopener noreferrer" class="btn-primary text-xs">
-                                <span>🔗 GitHub Repo</span>
-                            </a>
-                            <a href="https://dorahacks.io/buidl/14042" target="_blank" rel="noopener noreferrer" class="btn-secondary text-xs">
-                                🌐 DoraHacks
-                            </a>
+                            <a href=\"https://github.com/nguyensngoc108/Hackathon\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-primary text-xs\">\n                                <span>🔗 GitHub Repo</span>\n                            </a>\n                            <a href=\"https://dorahacks.io/buidl/14042\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn-secondary text-xs\">\n                                🌐 DoraHacks\n                            </a>
                         </div>
                     </div>
                 </div>
@@ -1020,28 +1127,28 @@
             </div>
 
             <div class="space-y-4">
-                <div class="card p-5 reveal flex gap-4 items-start">
+                <div class="card p-5 reveal flex gap-4 items-start min-w-0">
                     <div class="w-10 h-10 rounded-lg bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center text-xl flex-shrink-0">🎯</div>
-                    <div>
-                        <h3 class="font-semibold text-white text-sm">IT Youth Union – International University – VNUHCM</h3>
+                    <div class="min-w-0">
+                        <h3 class="font-semibold text-white text-sm break-words">IT Youth Union \u2013 International University \u2013 VNUHCM</h3>
                         <p class="text-cyan-400 mono text-xs mt-0.5">Executive Committee</p>
-                        <p class="text-gray-600 text-xs mt-1">Jan 2021 – Nov 2022</p>
+                        <p class="text-gray-600 text-xs mt-1">Jan 2021 \u2013 Nov 2022</p>
                     </div>
                 </div>
-                <div class="card p-5 reveal flex gap-4 items-start">
+                <div class="card p-5 reveal flex gap-4 items-start min-w-0">
                     <div class="w-10 h-10 rounded-lg bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center text-xl flex-shrink-0">📢</div>
-                    <div>
-                        <h3 class="font-semibold text-white text-sm">IT Youth Union – International University – VNUHCM</h3>
+                    <div class="min-w-0">
+                        <h3 class="font-semibold text-white text-sm break-words">IT Youth Union \u2013 International University \u2013 VNUHCM</h3>
                         <p class="text-cyan-400 mono text-xs mt-0.5">PR Leader</p>
-                        <p class="text-gray-600 text-xs mt-1">Jan 2021 – Dec 2021</p>
+                        <p class="text-gray-600 text-xs mt-1">Jan 2021 \u2013 Dec 2021</p>
                     </div>
                 </div>
-                <div class="card p-5 reveal flex gap-4 items-start">
+                <div class="card p-5 reveal flex gap-4 items-start min-w-0">
                     <div class="w-10 h-10 rounded-lg bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center text-xl flex-shrink-0">🎨</div>
-                    <div>
-                        <h3 class="font-semibold text-white text-sm">IT Youth Union – International University – VNUHCM</h3>
+                    <div class="min-w-0">
+                        <h3 class="font-semibold text-white text-sm break-words">IT Youth Union \u2013 International University \u2013 VNUHCM</h3>
                         <p class="text-cyan-400 mono text-xs mt-0.5">Designer</p>
-                        <p class="text-gray-600 text-xs mt-1">Nov 2020 – Nov 2021</p>
+                        <p class="text-gray-600 text-xs mt-1">Nov 2020 \u2013 Nov 2021</p>
                     </div>
                 </div>
             </div>
